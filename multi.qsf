@@ -1,0 +1,124 @@
+# -------------------------------------------------------------------------- #
+#
+# Copyright (C) 2016  Intel Corporation. All rights reserved.
+# Your use of Intel Corporation's design tools, logic functions 
+# and other software and tools, and its AMPP partner logic 
+# functions, and any output files from any of the foregoing 
+# (including device programming or simulation files), and any 
+# associated documentation or information are expressly subject 
+# to the terms and conditions of the Intel Program License 
+# Subscription Agreement, the Intel Quartus Prime License Agreement,
+# the Intel MegaCore Function License Agreement, or other 
+# applicable license agreement, including, without limitation, 
+# that your use is for the sole purpose of programming logic 
+# devices manufactured by Intel and sold by Intel or its 
+# authorized distributors.  Please refer to the applicable 
+# agreement for further details.
+#
+# -------------------------------------------------------------------------- #
+#
+# Quartus Prime
+# Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
+# Date created = 14:11:21  June 05, 2018
+#
+# -------------------------------------------------------------------------- #
+#
+# Notes:
+#
+# 1) The default values for assignments are stored in the file:
+#		multi_assignment_defaults.qdf
+#    If this file doesn't exist, see file:
+#		assignment_defaults.qdf
+#
+# 2) Altera recommends that you do not modify this file. This
+#    file is updated automatically by the Quartus Prime software
+#    and any changes you make may be lost or overwritten.
+#
+# -------------------------------------------------------------------------- #
+
+
+set_global_assignment -name FAMILY "Cyclone V"
+set_global_assignment -name DEVICE 5CSEMA5F31C6
+set_global_assignment -name TOP_LEVEL_ENTITY system
+set_global_assignment -name ORIGINAL_QUARTUS_VERSION 16.1.0
+set_global_assignment -name PROJECT_CREATION_TIME_DATE "14:11:21  JUNE 05, 2018"
+set_global_assignment -name LAST_QUARTUS_VERSION "16.1.0 Lite Edition"
+set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
+set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
+set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
+set_global_assignment -name ERROR_CHECK_FREQUENCY_DIVISOR 256
+set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
+set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_location_assignment PIN_AJ21 -to air0
+set_location_assignment PIN_AB17 -to f0
+set_location_assignment PIN_AG20 -to air1
+set_location_assignment PIN_AA21 -to f1
+set_location_assignment PIN_AG21 -to air2
+set_location_assignment PIN_AB21 -to f2
+set_location_assignment PIN_AF21 -to air3
+set_location_assignment PIN_AC23 -to f3
+set_location_assignment PIN_AC22 -to air4
+set_location_assignment PIN_AD24 -to f4
+set_location_assignment PIN_AD21 -to air5
+set_location_assignment PIN_AE23 -to f5
+set_location_assignment PIN_AF23 -to air6
+set_location_assignment PIN_AE24 -to f6
+set_location_assignment PIN_AG22 -to air7
+set_location_assignment PIN_AF25 -to f7
+set_location_assignment PIN_AF14 -to clk
+set_location_assignment PIN_AG18 -to odor0
+set_location_assignment PIN_AF18 -to odor1
+set_location_assignment PIN_AF19 -to odor2
+set_location_assignment PIN_AF20 -to odor3
+set_location_assignment PIN_AA20 -to odor4
+set_location_assignment PIN_AE22 -to odor5
+set_location_assignment PIN_AF24 -to odor6
+set_location_assignment PIN_AH22 -to odor7
+set_location_assignment PIN_AC18 -to rxd
+set_location_assignment PIN_Y17 -to txd
+set_global_assignment -name QIP_FILE software/ver3_space_control/mem_init/meminit.qip
+set_global_assignment -name VERILOG_FILE core/synthesis/submodules/core_uart.v
+set_global_assignment -name VERILOG_FILE core/synthesis/submodules/core_timer_0.v
+set_global_assignment -name VERILOG_FILE core/synthesis/submodules/core_pwm_0.v
+set_global_assignment -name VERILOG_FILE core/synthesis/submodules/core_onchip_memory2_0.v
+set_global_assignment -name VERILOG_FILE core/synthesis/submodules/core_nios2_gen2_0_cpu_test_bench.v
+set_global_assignment -name VERILOG_FILE core/synthesis/submodules/core_nios2_gen2_0_cpu_debug_slave_wrapper.v
+set_global_assignment -name VERILOG_FILE core/synthesis/submodules/core_nios2_gen2_0_cpu_debug_slave_tck.v
+set_global_assignment -name VERILOG_FILE core/synthesis/submodules/core_nios2_gen2_0_cpu_debug_slave_sysclk.v
+set_global_assignment -name VERILOG_FILE core/synthesis/submodules/core_nios2_gen2_0_cpu.v
+set_global_assignment -name VERILOG_FILE core/synthesis/submodules/core_nios2_gen2_0.v
+set_global_assignment -name SYSTEMVERILOG_FILE core/synthesis/submodules/core_mm_interconnect_0_rsp_mux_001.sv
+set_global_assignment -name SYSTEMVERILOG_FILE core/synthesis/submodules/core_mm_interconnect_0_rsp_mux.sv
+set_global_assignment -name SYSTEMVERILOG_FILE core/synthesis/submodules/core_mm_interconnect_0_rsp_demux_001.sv
+set_global_assignment -name SYSTEMVERILOG_FILE core/synthesis/submodules/core_mm_interconnect_0_router_003.sv
+set_global_assignment -name SYSTEMVERILOG_FILE core/synthesis/submodules/core_mm_interconnect_0_router_002.sv
+set_global_assignment -name SYSTEMVERILOG_FILE core/synthesis/submodules/core_mm_interconnect_0_router_001.sv
+set_global_assignment -name SYSTEMVERILOG_FILE core/synthesis/submodules/core_mm_interconnect_0_router.sv
+set_global_assignment -name SYSTEMVERILOG_FILE core/synthesis/submodules/core_mm_interconnect_0_cmd_mux_001.sv
+set_global_assignment -name SYSTEMVERILOG_FILE core/synthesis/submodules/core_mm_interconnect_0_cmd_mux.sv
+set_global_assignment -name SYSTEMVERILOG_FILE core/synthesis/submodules/core_mm_interconnect_0_cmd_demux_001.sv
+set_global_assignment -name SYSTEMVERILOG_FILE core/synthesis/submodules/core_mm_interconnect_0_cmd_demux.sv
+set_global_assignment -name SYSTEMVERILOG_FILE core/synthesis/submodules/core_mm_interconnect_0_avalon_st_adapter_error_adapter_0.sv
+set_global_assignment -name VERILOG_FILE core/synthesis/submodules/core_mm_interconnect_0_avalon_st_adapter.v
+set_global_assignment -name VERILOG_FILE core/synthesis/submodules/core_mm_interconnect_0.v
+set_global_assignment -name SYSTEMVERILOG_FILE core/synthesis/submodules/core_irq_mapper.sv
+set_global_assignment -name VERILOG_FILE core/synthesis/submodules/core_freq_0.v
+set_global_assignment -name VERILOG_FILE core/synthesis/submodules/altera_reset_synchronizer.v
+set_global_assignment -name VERILOG_FILE core/synthesis/submodules/altera_reset_controller.v
+set_global_assignment -name SYSTEMVERILOG_FILE core/synthesis/submodules/altera_merlin_slave_translator.sv
+set_global_assignment -name SYSTEMVERILOG_FILE core/synthesis/submodules/altera_merlin_slave_agent.sv
+set_global_assignment -name SYSTEMVERILOG_FILE core/synthesis/submodules/altera_merlin_master_translator.sv
+set_global_assignment -name SYSTEMVERILOG_FILE core/synthesis/submodules/altera_merlin_master_agent.sv
+set_global_assignment -name SYSTEMVERILOG_FILE core/synthesis/submodules/altera_merlin_burst_uncompressor.sv
+set_global_assignment -name SYSTEMVERILOG_FILE core/synthesis/submodules/altera_merlin_arbitrator.sv
+set_global_assignment -name VERILOG_FILE core/synthesis/submodules/altera_avalon_sc_fifo.v
+set_global_assignment -name VHDL_FILE core/synthesis/core.vhd
+set_global_assignment -name VHDL_FILE counter.vhd
+set_global_assignment -name VHDL_FILE pwm.vhd
+set_global_assignment -name VHDL_FILE gate.vhd
+set_global_assignment -name VHDL_FILE pwm_gatee.vhd
+set_global_assignment -name BDF_FILE system.bdf
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

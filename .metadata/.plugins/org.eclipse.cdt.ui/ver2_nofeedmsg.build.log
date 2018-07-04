@@ -1,0 +1,18 @@
+16:09:24 **** Build of configuration Nios II for project ver2_nofeedmsg ****
+make mem_init_generate 
+Info: Building ../ver2_nofeedmsg_bsp/
+D:/intelFPGA_lite/16.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ver2_nofeedmsg_bsp/
+[BSP build complete]
+Post-processing to create mem_init/core_onchip_memory2_0.hex...
+elf2hex ver2_nofeedmsg.elf 0x00004000 0x00007fff --width=32 --little-endian-mem --create-lanes=0 mem_init/core_onchip_memory2_0.hex
+Post-processing to create mem_init/hdl_sim/core_onchip_memory2_0.dat...
+elf2dat --infile=ver2_nofeedmsg.elf --outfile=mem_init/hdl_sim/core_onchip_memory2_0.dat \
+		--base=0x00004000 --end=0x00007fff --width=32 \
+		--little-endian-mem --create-lanes=0 
+Post-processing to create mem_init/hdl_sim/core_onchip_memory2_0.sym...
+nios2-elf-nm -n ver2_nofeedmsg.elf > mem_init/hdl_sim/core_onchip_memory2_0.sym
+Post-processing to create mem_init/meminit.spd...
+Post-processing to create mem_init/meminit.qip...
+
+16:09:28 Build Finished (took 3s.395ms)
+

@@ -1,0 +1,117 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "odor1",
+					"strict" : false
+				},
+				{
+					"name" : "odor3",
+					"strict" : false
+				},
+				{
+					"name" : "odor7",
+					"strict" : false
+				},
+				{
+					"name" : "odor6",
+					"strict" : false
+				},
+				{
+					"name" : "odor4",
+					"strict" : false
+				},
+				{
+					"name" : "odor5",
+					"strict" : false
+				},
+				{
+					"name" : "odor2",
+					"strict" : false
+				},
+				{
+					"name" : "odor0",
+					"strict" : false
+				},
+				{
+					"name" : "air1",
+					"strict" : false
+				},
+				{
+					"name" : "air3",
+					"strict" : false
+				},
+				{
+					"name" : "air4",
+					"strict" : false
+				},
+				{
+					"name" : "air6",
+					"strict" : false
+				},
+				{
+					"name" : "air7",
+					"strict" : false
+				},
+				{
+					"name" : "air5",
+					"strict" : false
+				},
+				{
+					"name" : "air2",
+					"strict" : false
+				},
+				{
+					"name" : "air0",
+					"strict" : false
+				},
+				{
+					"name" : "txd",
+					"strict" : false
+				},
+				{
+					"name" : "clk",
+					"strict" : false
+				},
+				{
+					"name" : "f4",
+					"strict" : false
+				},
+				{
+					"name" : "f3",
+					"strict" : false
+				},
+				{
+					"name" : "f2",
+					"strict" : false
+				},
+				{
+					"name" : "f1",
+					"strict" : false
+				},
+				{
+					"name" : "f0",
+					"strict" : false
+				},
+				{
+					"name" : "f7",
+					"strict" : false
+				},
+				{
+					"name" : "f6",
+					"strict" : false
+				},
+				{
+					"name" : "f5",
+					"strict" : false
+				},
+				{
+					"name" : "rxd",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

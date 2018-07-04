@@ -1,0 +1,6 @@
+18:16:58 **** Clean-only build of configuration Nios II for project ver3_space_control_bsp ****
+make clean 
+[BSP clean complete]
+
+18:16:59 Build Finished (took 1s.681ms)
+

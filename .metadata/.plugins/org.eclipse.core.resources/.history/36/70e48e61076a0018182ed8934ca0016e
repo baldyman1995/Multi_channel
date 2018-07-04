@@ -1,0 +1,297 @@
+/* 
+ * "Small Hello World" example. 
+ * 
+ * This example prints 'Hello from Nios II' to the STDOUT stream. It runs on
+ * the Nios II 'standard', 'full_featured', 'fast', and 'low_cost' example 
+ * designs. It requires a STDOUT  device in your system's hardware. 
+ *
+ * The purpose of this example is to demonstrate the smallest possible Hello 
+ * World application, using the Nios II HAL library.  The memory footprint
+ * of this hosted application is ~332 bytes by default using the standard 
+ * reference design.  For a more fully featured Hello World application
+ * example, see the example titled "Hello World".
+ *
+ * The memory footprint of this example has been reduced by making the
+ * following changes to the normal "Hello World" example.
+ * Check in the Nios II Software Developers Manual for a more complete 
+ * description.
+ * 
+ * In the SW Application project (small_hello_world):
+ *
+ *  - In the C/C++ Build page
+ * 
+ *    - Set the Optimization Level to -Os
+ * 
+ * In System Library project (small_hello_world_syslib):
+ *  - In the C/C++ Build page
+ * 
+ *    - Set the Optimization Level to -Os
+ * 
+ *    - Define the preprocessor option ALT_NO_INSTRUCTION_EMULATION 
+ *      This removes software exception handling, which means that you cannot 
+ *      run code compiled for Nios II cpu with a hardware multiplier on a core 
+ *      without a the multiply unit. Check the Nios II Software Developers 
+ *      Manual for more details.
+ *
+ *  - In the System Library page:
+ *    - Set Periodic system timer and Timestamp timer to none
+ *      This prevents the automatic inclusion of the timer driver.
+ *
+ *    - Set Max file descriptors to 4
+ *      This reduces the size of the file handle pool.
+ *
+ *    - Check Main function does not exit
+ *    - Uncheck Clean exit (flush buffers)
+ *      This removes the unneeded call to exit when main returns, since it
+ *      won't.
+ *
+ *    - Check Don't use C++
+ *      This builds without the C++ support code.
+ *
+ *    - Check Small C library
+ *      This uses a reduced functionality C library, which lacks  
+ *      support for buffering, file IO, floating point and getch(), etc. 
+ *      Check the Nios II Software Developers Manual for a complete list.
+ *
+ *    - Check Reduced device drivers
+ *      This uses reduced functionality drivers if they're available. For the
+ *      standard design this means you get polled UART and JTAG UART drivers,
+ *      no support for the LCD driver and you lose the ability to program 
+ *      CFI compliant flash devices.
+ *
+ *    - Check Access device drivers directly
+ *      This bypasses the device file system to access device drivers directly.
+ *      This eliminates the space required for the device file system services.
+ *      It also provides a HAL version of libc services that access the drivers
+ *      directly, further reducing space. Only a limited number of libc
+ *      functions are available in this configuration.
+ *
+ *    - Use ALT versions of stdio routines:
+ *
+ *           Function                  Description
+ *        ===============  =====================================
+ *        alt_printf       Only supports %s, %x, and %c ( < 1 Kbyte)
+ *        alt_putstr       Smaller overhead than puts with direct drivers
+ *                         Note this function doesn't add a newline.
+ *        alt_putchar      Smaller overhead than putchar with direct drivers
+ *        alt_getchar      Smaller overhead than getchar with direct drivers
+ *
+ */
+
+#include "sys/alt_stdio.h"
+
+
+#include <stdio.h>
+#include "system.h"
+#include "altera_avalon_pio_regs.h"
+#include "altera_avalon_uart_regs.h"
+#include <string.h>
+#include "alt_types.h"
+#include "sys/alt_irq.h"
+#include "altera_avalon_timer_regs.h"
+#include "unistd.h"
+
+static alt_u8 rx_data = 0;
+static alt_u8 tx_data = 0;
+
+unsigned int timer_isr_context;
+
+
+void uart_init(){
+	IOWR_ALTERA_AVALON_UART_STATUS(UART_BASE,0);
+	IOWR_ALTERA_AVALON_UART_CONTROL(UART_BASE,0X80);
+	printf("Initialized \n");
+	printf("***************** \n");
+}
+
+static void freq_isr(){
+
+	IOWR_ALTERA_AVALON_TIMER_STATUS(TIMER_0_BASE,
+	      ~ ALTERA_AVALON_TIMER_STATUS_TO_MSK);
+
+	alt_u32 p = 0x000000;
+	p = IORD_ALTERA_AVALON_PIO_DATA(FREQ_0_BASE);
+	printf("%u",p);
+	printf("\n");
+
+}
+
+
+static void uart_isr(){
+	volatile char *save;
+	volatile char *chan;
+	volatile int *perc_in;
+	int z = 0;
+	int j = 0;
+	int i;
+	int perc = 0;
+	char *cmd_pwm = "pwm";
+	char *cmd_freq = "frq";
+
+
+
+	while(1){
+
+		while(!((IORD_ALTERA_AVALON_UART_STATUS(UART_BASE)&ALTERA_AVALON_UART_STATUS_RRDY_MSK)));
+
+		rx_data = IORD_ALTERA_AVALON_UART_RXDATA(UART_BASE);
+
+		tx_data = rx_data;
+
+		while(!((IORD_ALTERA_AVALON_UART_STATUS(UART_BASE)&ALTERA_AVALON_UART_STATUS_TRDY_MSK)));
+		IOWR_ALTERA_AVALON_UART_TXDATA(UART_BASE,tx_data);
+
+		if(tx_data == '\n'){
+			break;
+		};
+
+		save[z] = rx_data;
+
+		z++;
+	};
+
+
+	int result_p = strcmp(cmd_pwm,save);
+	int result_f = strcmp(cmd_freq,save);
+
+
+	if(result_p == 0){
+
+
+
+		while(1){
+
+			while(!((IORD_ALTERA_AVALON_UART_STATUS(UART_BASE)&ALTERA_AVALON_UART_STATUS_RRDY_MSK)));
+
+			rx_data = IORD_ALTERA_AVALON_UART_RXDATA(UART_BASE);
+
+			tx_data = rx_data;
+
+			while(!((IORD_ALTERA_AVALON_UART_STATUS(UART_BASE)&ALTERA_AVALON_UART_STATUS_TRDY_MSK)));
+			IOWR_ALTERA_AVALON_UART_TXDATA(UART_BASE,tx_data);
+
+			if(tx_data == '\n'){
+				break;
+			};
+			perc_in[j] = (int)tx_data - 48;
+			j++;
+
+		};
+
+
+		for(i=0;i<j;i++){
+			perc = perc * 10 + perc_in[i];
+		};
+
+
+		pwm(perc);
+
+
+	}
+	else if(result_f == 0){
+		while(1){
+
+			while(!((IORD_ALTERA_AVALON_UART_STATUS(UART_BASE)&ALTERA_AVALON_UART_STATUS_RRDY_MSK)));
+
+			rx_data = IORD_ALTERA_AVALON_UART_RXDATA(UART_BASE);
+
+			tx_data = rx_data;
+
+			while(!((IORD_ALTERA_AVALON_UART_STATUS(UART_BASE)&ALTERA_AVALON_UART_STATUS_TRDY_MSK)));
+			IOWR_ALTERA_AVALON_UART_TXDATA(UART_BASE,tx_data);
+
+			if(tx_data == '\n'){
+				break;
+			};
+			chan[j] = (int)tx_data - 48;
+			j++;
+
+		};
+
+		for(i=0;i<j;i++){
+			perc = perc * 10 + perc_in[i];
+		};
+		printf("%d",perc);
+
+
+		pwm(perc);
+	}
+	else{
+
+	};
+	printf("also finish \n");
+			printf("***************** \n");
+
+}
+
+void pwm(int get_perc){
+
+	int perc = get_perc;
+	int i;
+	int chan = 0;
+	chan = perc/1000;
+	perc = perc%1000;
+	printf("%d",chan);
+	printf("%d",perc);
+		if(perc <= 100){
+				int pwm_rec = 0x00;
+
+				for(i=0;i<perc;i++){
+					pwm_rec++;
+				};
+				switch(chan){
+					case 0:IOWR_ALTERA_AVALON_PIO_DATA(PWM_0_BASE,pwm_rec);break;
+					case 1:IOWR_ALTERA_AVALON_PIO_DATA(PWM_1_BASE,pwm_rec);break;
+					case 2:IOWR_ALTERA_AVALON_PIO_DATA(PWM_2_BASE,pwm_rec);break;
+					case 3:IOWR_ALTERA_AVALON_PIO_DATA(PWM_3_BASE,pwm_rec);break;
+					case 4:IOWR_ALTERA_AVALON_PIO_DATA(PWM_4_BASE,pwm_rec);break;
+					case 5:IOWR_ALTERA_AVALON_PIO_DATA(PWM_5_BASE,pwm_rec);break;
+					case 6:IOWR_ALTERA_AVALON_PIO_DATA(PWM_6_BASE,pwm_rec);break;
+					case 7:IOWR_ALTERA_AVALON_PIO_DATA(PWM_7_BASE,pwm_rec);break;
+
+				};
+
+		}
+
+		else{
+
+		};
+
+	printf("finish \n");
+		printf("***************** \n");
+
+
+
+}
+
+void timer_init(){
+	void* isr_context_ptr = (void*) &timer_isr_context;
+
+	IOWR_ALTERA_AVALON_TIMER_PERIODH(TIMER_0_BASE, 0x02FA);
+	IOWR_ALTERA_AVALON_TIMER_PERIODL(TIMER_0_BASE, 0xF080);
+
+	IOWR_ALTERA_AVALON_TIMER_CONTROL(TIMER_0_BASE,
+	ALTERA_AVALON_TIMER_CONTROL_START_MSK |
+	ALTERA_AVALON_TIMER_CONTROL_CONT_MSK  |
+	ALTERA_AVALON_TIMER_CONTROL_ITO_MSK);
+
+
+	alt_ic_isr_register(
+	      TIMER_0_IRQ_INTERRUPT_CONTROLLER_ID,
+	      TIMER_0_IRQ,
+	      freq_isr,
+	      isr_context_ptr,
+	      0x0);
+}
+
+
+
+int main(){
+	printf("System Start \n");
+	printf("***************** \n");
+	uart_init();
+	timer_init();
+	alt_irq_register(UART_IRQ,NULL,uart_isr);
+	while(1){}
+	return 0;
+}

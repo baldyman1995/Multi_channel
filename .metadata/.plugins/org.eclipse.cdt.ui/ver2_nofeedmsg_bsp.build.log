@@ -1,0 +1,6 @@
+18:44:00 **** Clean-only build of configuration Nios II for project ver2_nofeedmsg_bsp ****
+make clean 
+[BSP clean complete]
+
+18:44:00 Build Finished (took 527ms)
+
