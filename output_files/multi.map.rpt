@@ -1,5 +1,5 @@
 Analysis & Synthesis report for multi
-Thu Jun 21 18:31:01 2018
+Thu Jul 12 15:17:19 2018
 Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
 
 
@@ -331,14 +331,14 @@ agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Thu Jun 21 18:31:01 2018       ;
+; Analysis & Synthesis Status     ; Successful - Thu Jul 12 15:17:19 2018       ;
 ; Quartus Prime Version           ; 16.1.0 Build 196 10/24/2016 SJ Lite Edition ;
 ; Revision Name                   ; multi                                       ;
 ; Top-level Entity Name           ; system                                      ;
 ; Family                          ; Cyclone V                                   ;
 ; Logic utilization (in ALMs)     ; N/A                                         ;
 ; Total registers                 ; 2142                                        ;
-; Total pins                      ; 27                                          ;
+; Total pins                      ; 32                                          ;
 ; Total virtual pins              ; 0                                           ;
 ; Total block memory bits         ; 141,312                                     ;
 ; Total DSP Blocks                ; 0                                           ;
@@ -549,7 +549,7 @@ agreement for further details.
 ;                                             ;           ;
 ; Dedicated logic registers                   ; 2142      ;
 ;                                             ;           ;
-; I/O pins                                    ; 27        ;
+; I/O pins                                    ; 32        ;
 ; Total MLAB memory bits                      ; 0         ;
 ; Total block memory bits                     ; 141312    ;
 ;                                             ;           ;
@@ -557,8 +557,8 @@ agreement for further details.
 ;                                             ;           ;
 ; Maximum fan-out node                        ; clk~input ;
 ; Maximum fan-out                             ; 1627      ;
-; Total fan-out                               ; 17463     ;
-; Average fan-out                             ; 4.00      ;
+; Total fan-out                               ; 17468     ;
+; Average fan-out                             ; 3.99      ;
 +---------------------------------------------+-----------+
 
 
@@ -567,7 +567,7 @@ agreement for further details.
 +-----------------------------------------------------------------------------------------------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------+--------------+
 ; Compilation Hierarchy Node                                                                                                              ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                                                                                                                                                                                                                                                               ; Entity Name                                  ; Library Name ;
 +-----------------------------------------------------------------------------------------------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------+--------------+
-; |system                                                                                                                                 ; 2034 (1)            ; 2142 (0)                  ; 141312            ; 0          ; 27   ; 0            ; |system                                                                                                                                                                                                                                                                                                                                                                           ; system                                       ; work         ;
+; |system                                                                                                                                 ; 2034 (1)            ; 2142 (0)                  ; 141312            ; 0          ; 32   ; 0            ; |system                                                                                                                                                                                                                                                                                                                                                                           ; system                                       ; work         ;
 ;    |PWM_G:p0|                                                                                                                           ; 22 (22)             ; 23 (23)                   ; 0                 ; 0          ; 0    ; 0            ; |system|PWM_G:p0                                                                                                                                                                                                                                                                                                                                                                  ; PWM_G                                        ; work         ;
 ;    |PWM_G:p1|                                                                                                                           ; 16 (16)             ; 16 (16)                   ; 0                 ; 0          ; 0    ; 0            ; |system|PWM_G:p1                                                                                                                                                                                                                                                                                                                                                                  ; PWM_G                                        ; work         ;
 ;    |PWM_G:p2|                                                                                                                           ; 11 (11)             ; 16 (16)                   ; 0                 ; 0          ; 0    ; 0            ; |system|PWM_G:p2                                                                                                                                                                                                                                                                                                                                                                  ; PWM_G                                        ; work         ;
@@ -8036,7 +8036,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 ;     SCLR              ; 64                          ;
 ;     SLD               ; 30                          ;
 ;     plain             ; 105                         ;
-; arriav_lcell_comb     ; 1944                        ;
+; arriav_lcell_comb     ; 1945                        ;
 ;     arith             ; 418                         ;
 ;         1 data inputs ; 378                         ;
 ;         2 data inputs ; 8                           ;
@@ -8044,15 +8044,15 @@ Note: In order to hide this table in the UI and the text report file, please set
 ;         4 data inputs ; 1                           ;
 ;     extend            ; 23                          ;
 ;         7 data inputs ; 23                          ;
-;     normal            ; 1503                        ;
-;         0 data inputs ; 2                           ;
+;     normal            ; 1504                        ;
+;         0 data inputs ; 3                           ;
 ;         1 data inputs ; 62                          ;
 ;         2 data inputs ; 164                         ;
 ;         3 data inputs ; 389                         ;
 ;         4 data inputs ; 229                         ;
 ;         5 data inputs ; 345                         ;
 ;         6 data inputs ; 312                         ;
-; boundary_port         ; 54                          ;
+; boundary_port         ; 59                          ;
 ; stratixv_ram_block    ; 128                         ;
 ;                       ;                             ;
 ; Max LUT depth         ; 6.00                        ;
@@ -8065,7 +8065,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:05     ;
+; Top            ; 00:00:04     ;
 +----------------+--------------+
 
 
@@ -8075,7 +8075,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
-    Info: Processing started: Thu Jun 21 18:30:19 2018
+    Info: Processing started: Thu Jul 12 15:16:40 2018
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off multi -c multi
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -8391,7 +8391,7 @@ Info (12128): Elaborating entity "freq" for hierarchy "freq:inst11"
 Warning (10492): VHDL Process Statement warning at gate.vhd(23): signal "gate_p_m" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Baldyman/Desktop/Multi_channel/gate.vhd Line: 23
 Warning (10492): VHDL Process Statement warning at gate.vhd(24): signal "reset_p_m" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Baldyman/Desktop/Multi_channel/gate.vhd Line: 24
 Info (11170): Starting IP generation for the debug fabric: alt_sld_fab.
-Info (11172): 2018.06.21.18:30:43 Progress: Loading sld63346dfb/alt_sld_fab_wrapper_hw.tcl
+Info (11172): 2018.07.12.15:17:04 Progress: Loading sld63346dfb/alt_sld_fab_wrapper_hw.tcl
 Info (11172): Alt_sld_fab.alt_sld_fab: SLD fabric agents which did not specify prefer_host were connected to JTAG
 Info (11172): Alt_sld_fab: Generating alt_sld_fab "alt_sld_fab" for QUARTUS_SYNTH
 Info (11172): Alt_sld_fab: "alt_sld_fab" instantiated alt_sld_fab "alt_sld_fab"
@@ -8415,21 +8415,27 @@ Info (12021): Found 2 design units, including 1 entities, in source file db/ip/s
 Info (12021): Found 1 design units, including 1 entities, in source file db/ip/sld63346dfb/submodules/alt_sld_fab_alt_sld_fab_splitter.sv
     Info (12023): Found entity 1: alt_sld_fab_alt_sld_fab_splitter File: C:/Users/Baldyman/Desktop/Multi_channel/db/ip/sld63346dfb/submodules/alt_sld_fab_alt_sld_fab_splitter.sv Line: 3
 Warning (12241): 3 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "VCC4USB" is stuck at VCC
+    Warning (13410): Pin "VCC4OSC" is stuck at VCC
+    Warning (13410): Pin "GND1" is stuck at GND
+    Warning (13410): Pin "GND2" is stuck at GND
+    Warning (13410): Pin "GND3" is stuck at GND
 Info (286031): Timing-Driven Synthesis is running on partition "Top"
 Info (17049): 305 registers lost all their fanouts during netlist optimizations.
 Info (144001): Generated suppressed messages file C:/Users/Baldyman/Desktop/Multi_channel/output_files/multi.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 9 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 3349 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 3354 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 13 input pins
-    Info (21059): Implemented 18 output pins
+    Info (21059): Implemented 23 output pins
     Info (21061): Implemented 3189 logic cells
     Info (21064): Implemented 128 RAM segments
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 19 warnings
-    Info: Peak virtual memory: 949 megabytes
-    Info: Processing ended: Thu Jun 21 18:31:01 2018
-    Info: Elapsed time: 00:00:42
-    Info: Total CPU time (on all processors): 00:00:56
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 25 warnings
+    Info: Peak virtual memory: 5044 megabytes
+    Info: Processing ended: Thu Jul 12 15:17:20 2018
+    Info: Elapsed time: 00:00:40
+    Info: Total CPU time (on all processors): 00:01:06
 
 
 +------------------------------------------+

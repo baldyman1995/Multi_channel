@@ -28,6 +28,11 @@ air5 <= PWM_G:p5.air_v
 air2 <= PWM_G:p2.air_v
 air0 <= PWM_G:p0.air_v
 txd <= core:inst.uart_external_connection_txd
+VCC4USB <= <VCC>
+VCC4OSC <= <VCC>
+GND1 <= <GND>
+GND2 <= <GND>
+GND3 <= <GND>
 
 
 |system|PWM_G:p1
