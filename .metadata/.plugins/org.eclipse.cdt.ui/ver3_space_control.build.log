@@ -1,18 +1,69 @@
-18:29:26 **** Build of configuration Nios II for project ver3_space_control ****
-make mem_init_generate 
+12:14:25 **** Incremental Build of configuration Nios II for project ver3_space_control ****
+make all 
 Info: Building ../ver3_space_control_bsp/
 D:/intelFPGA_lite/16.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ver3_space_control_bsp/
 [BSP build complete]
-Post-processing to create mem_init/core_onchip_memory2_0.hex...
-elf2hex ver3_space_control.elf 0x00004000 0x00007fff --width=32 --little-endian-mem --create-lanes=0 mem_init/core_onchip_memory2_0.hex
-Post-processing to create mem_init/hdl_sim/core_onchip_memory2_0.dat...
-elf2dat --infile=ver3_space_control.elf --outfile=mem_init/hdl_sim/core_onchip_memory2_0.dat \
-		--base=0x00004000 --end=0x00007fff --width=32 \
-		--little-endian-mem --create-lanes=0 
-Post-processing to create mem_init/hdl_sim/core_onchip_memory2_0.sym...
-nios2-elf-nm -n ver3_space_control.elf > mem_init/hdl_sim/core_onchip_memory2_0.sym
-Post-processing to create mem_init/meminit.spd...
-Post-processing to create mem_init/meminit.qip...
+Info: Compiling hello_world_small.c to obj/default/hello_world_small.o
+nios2-elf-gcc -xc -MP -MMD -c -I../ver3_space_control_bsp//HAL/inc -I../ver3_space_control_bsp/ -I../ver3_space_control_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_C_PLUS_PLUS -DALT_NO_CLEAN_EXIT -D'exit(a)=_exit(a)' -DALT_NO_EXIT -DALT_USE_DIRECT_DRIVERS -DALT_NO_INSTRUCTION_EMULATION -DALT_USE_SMALL_DRIVERS -DSMALL_C_LIB -DALT_SINGLE_THREADED    -Os -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/hello_world_small.o hello_world_small.c
+hello_world_small.c: In function 'freq_isr':
+hello_world_small.c:48:10: warning: format '%u' expects argument of type 'unsigned int', but argument 2 has type 'alt_u32 {aka long unsigned int}' [-Wformat=]
+   printf("%u",p);
+          ^
+hello_world_small.c:48:10: warning: format '%u' expects argument of type 'unsigned int', but argument 2 has type 'alt_u32 {aka long unsigned int}' [-Wformat=]
+hello_world_small.c: In function 'uart_isr':
+hello_world_small.c:89:33: warning: passing argument 2 of 'strncmp' discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  int result_p = strncmp(cmd_pwm,save,3);
+                                 ^
+In file included from d:\intelfpga_lite\16.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\stdio.h:29:0,
+                 from hello_world_small.c:6:
+d:\intelfpga_lite\16.1\nios2eds\bin\gnu\h-x86_64-mingw32\nios2-elf\include\string.h:35:6: note: expected 'const char *' but argument is of type 'volatile char *'
+ int  _EXFUN(strncmp,(const char *, const char *, size_t));
+      ^
+hello_world_small.c:121:3: warning: implicit declaration of function 'pwm' [-Wimplicit-function-declaration]
+   pwm(data_pwm);
+   ^
+hello_world_small.c:65:6: warning: unused variable 'o' [-Wunused-variable]
+  int o;
+      ^
+hello_world_small.c:62:6: warning: unused variable 'perc' [-Wunused-variable]
+  int perc = 0;
+      ^
+hello_world_small.c:61:6: warning: unused variable 'i' [-Wunused-variable]
+  int i;
+      ^
+hello_world_small.c:58:15: warning: unused variable 'perc_in' [-Wunused-variable]
+  volatile int perc_in[24];
+               ^
+hello_world_small.c: At top level:
+hello_world_small.c:134:6: warning: conflicting types for 'pwm'
+ void pwm(int *get_perc){
+      ^
+hello_world_small.c:121:3: note: previous implicit declaration of 'pwm' was here
+   pwm(data_pwm);
+   ^
+hello_world_small.c: In function 'main':
+hello_world_small.c:195:2: warning: implicit declaration of function 'alt_irq_register' [-Wimplicit-function-declaration]
+  alt_irq_register(UART_IRQ,NULL,uart_isr);
+  ^
+hello_world_small.c: At top level:
+hello_world_small.c:17:15: warning: 'tx_data' defined but not used [-Wunused-variable]
+ static alt_u8 tx_data = 0;
+               ^
+hello_world_small.c: In function 'uart_isr':
+hello_world_small.c:89:6: warning: 'save' is used uninitialized in this function [-Wuninitialized]
+  int result_p = strncmp(cmd_pwm,save,3);
+      ^
+hello_world_small.c:121:3: warning: 'data_pwm' may be used uninitialized in this function [-Wmaybe-uninitialized]
+   pwm(data_pwm);
+   ^
+Info: Linking ver3_space_control.elf
+nios2-elf-g++  -T'../ver3_space_control_bsp//linker.x' -msys-crt0='../ver3_space_control_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../ver3_space_control_bsp/  -msmallc  -Wl,-Map=ver3_space_control.map   -Os -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o ver3_space_control.elf obj/default/hello_world_small.o -lm -msys-lib=m
+nios2-elf-insert ver3_space_control.elf --thread_model hal --cpu_name nios2_gen2_0 --qsys true --simulation_enabled false --stderr_dev uart --stdin_dev uart --stdout_dev uart --sopc_system_name core --quartus_project_dir "C:/Users/Baldyman/Desktop/Multi_channel" --jdi ../..//output_files/multi.jdi --sopcinfo C:/Users/Baldyman/Desktop/Multi_channel/software/ver3_space_control_bsp/../../core.sopcinfo
+Info: (ver3_space_control.elf) 5912 Bytes program size (code + initialized data).
+Info:                          10228 Bytes free for stack + heap.
+Info: Creating ver3_space_control.objdump
+nios2-elf-objdump --disassemble --syms --all-header --source ver3_space_control.elf >ver3_space_control.objdump
+[ver3_space_control build complete]
 
-18:29:28 Build Finished (took 2s.736ms)
+12:14:34 Build Finished (took 8s.887ms)
 

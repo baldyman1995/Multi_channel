@@ -261,26 +261,20 @@ static void uart_isr(){
 			while(!((IORD_ALTERA_AVALON_UART_STATUS(UART_BASE)&ALTERA_AVALON_UART_STATUS_TRDY_MSK)));
 
 			if(rx_data == '\n'){
+				data_pwm[j] = cont;
 				break;
-			};
-			perc_in[j] = (int)rx_data - 48;
-			j++;
-
-		};
-
-
-		if(j==24){
-			for(i=0;i<8;i++){
-				cont = 0;
-				for(o=0;o<3;o++){
-					cont = perc_in[3*i + o] + cont*10;
-
-				}
-				data_pwm[i] = cont;
-
 			}
-
+			else if(rx_data == 32){
+				data_pwm[j] = cont;
+				j++;
+				cont = 0;
+			}
+			else{
+				cont = ((int)rx_data - 48) + cont * 10;
+			}
 		};
+
+
 
 		pwm(data_pwm);
 
