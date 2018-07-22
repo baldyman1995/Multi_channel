@@ -184,7 +184,7 @@ RESERVED_INPUT_WITH_WEAK_PULLUP : AC14      :        :                   :      
 VCCPD3B4A                    : AC15      : power  :                   : 2.5V    : 3B, 4A    :                
 GND                          : AC16      : gnd    :                   :         :           :                
 VCCPD3B4A                    : AC17      : power  :                   : 2.5V    : 3B, 4A    :                
-air4                         : AC18      : output : 2.5 V             :         : 4A        : Y              
+odor4                        : AC18      : output : 2.5 V             :         : 4A        : Y              
 VCCPD3B4A                    : AC19      : power  :                   : 2.5V    : 3B, 4A    :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : AC20      :        :                   :         : 4A        :                
 VCCIO4A                      : AC21      : power  :                   : 2.5V    : 4A        :                
@@ -213,7 +213,7 @@ VCCIO3B                      : AD13      : power  :                   : 2.5V    
 RESERVED_INPUT_WITH_WEAK_PULLUP : AD14      :        :                   :         : 3B        :                
 DNU                          : AD15      :        :                   :         :           :                
 VCCPD3B4A                    : AD16      : power  :                   : 2.5V    : 3B, 4A    :                
-air5                         : AD17      : output : 2.5 V             :         : 4A        : Y              
+odor5                        : AD17      : output : 2.5 V             :         : 4A        : Y              
 VCCIO4A                      : AD18      : power  :                   : 2.5V    : 4A        :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : AD19      :        :                   :         : 4A        :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : AD20      :        :                   :         : 4A        :                
@@ -274,10 +274,10 @@ clk                          : AF14      : input  : 2.5 V             :         
 RESERVED_INPUT_WITH_WEAK_PULLUP : AF15      :        :                   :         : 3B        :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : AF16      :        :                   :         : 4A        :                
 GND                          : AF17      : gnd    :                   :         :           :                
-odor2                        : AF18      : output : 2.5 V             :         : 4A        : Y              
-odor1                        : AF19      : output : 2.5 V             :         : 4A        : Y              
-odor0                        : AF20      : output : 2.5 V             :         : 4A        : Y              
-odor7                        : AF21      : output : 2.5 V             :         : 4A        : Y              
+air2                         : AF18      : output : 2.5 V             :         : 4A        : Y              
+air1                         : AF19      : output : 2.5 V             :         : 4A        : Y              
+air0                         : AF20      : output : 2.5 V             :         : 4A        : Y              
+air7                         : AF21      : output : 2.5 V             :         : 4A        : Y              
 VCCIO4A                      : AF22      : power  :                   : 2.5V    : 4A        :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : AF23      :        :                   :         : 4A        :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : AF24      :        :                   :         : 4A        :                
@@ -304,10 +304,10 @@ GND                          : AG14      : gnd    :                   :         
 RESERVED_INPUT_WITH_WEAK_PULLUP : AG15      :        :                   :         : 3B        :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : AG16      :        :                   :         : 4A        :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : AG17      :        :                   :         : 4A        :                
-odor3                        : AG18      : output : 2.5 V             :         : 4A        : Y              
+air3                         : AG18      : output : 2.5 V             :         : 4A        : Y              
 VCCIO4A                      : AG19      : power  :                   : 2.5V    : 4A        :                
-odor5                        : AG20      : output : 2.5 V             :         : 4A        : Y              
-odor6                        : AG21      : output : 2.5 V             :         : 4A        : Y              
+air5                         : AG20      : output : 2.5 V             :         : 4A        : Y              
+air6                         : AG21      : output : 2.5 V             :         : 4A        : Y              
 RESERVED_INPUT_WITH_WEAK_PULLUP : AG22      :        :                   :         : 4A        :                
 f7                           : AG23      : input  : 2.5 V             :         : 4A        : Y              
 GND                          : AG24      : gnd    :                   :         :           :                
@@ -365,9 +365,9 @@ VREFB3BN0                    : AJ15      : power  :                   :         
 RESERVED_INPUT_WITH_WEAK_PULLUP : AJ16      :        :                   :         : 4A        :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : AJ17      :        :                   :         : 4A        :                
 GND                          : AJ18      : gnd    :                   :         :           :                
-air0                         : AJ19      : output : 2.5 V             :         : 4A        : Y              
+odor0                        : AJ19      : output : 2.5 V             :         : 4A        : Y              
 RESERVED_INPUT_WITH_WEAK_PULLUP : AJ20      :        :                   :         : 4A        :                
-odor4                        : AJ21      : output : 2.5 V             :         : 4A        : Y              
+air4                         : AJ21      : output : 2.5 V             :         : 4A        : Y              
 RESERVED_INPUT_WITH_WEAK_PULLUP : AJ22      :        :                   :         : 4A        :                
 VCCIO4A                      : AJ23      : power  :                   : 2.5V    : 4A        :                
 f6                           : AJ24      : input  : 2.5 V             :         : 4A        : Y              
@@ -391,10 +391,10 @@ RESERVED_INPUT_WITH_WEAK_PULLUP : AK12      :        :                   :      
 RESERVED_INPUT_WITH_WEAK_PULLUP : AK13      :        :                   :         : 3B        :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : AK14      :        :                   :         : 3B        :                
 GND                          : AK15      : gnd    :                   :         :           :                
-air6                         : AK16      : output : 2.5 V             :         : 4A        : Y              
+odor6                        : AK16      : output : 2.5 V             :         : 4A        : Y              
 VREFB4AN0                    : AK17      : power  :                   :         : 4A        :                
-air1                         : AK18      : output : 2.5 V             :         : 4A        : Y              
-air7                         : AK19      : output : 2.5 V             :         : 4A        : Y              
+odor1                        : AK18      : output : 2.5 V             :         : 4A        : Y              
+odor7                        : AK19      : output : 2.5 V             :         : 4A        : Y              
 VCCIO4A                      : AK20      : power  :                   : 2.5V    : 4A        :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : AK21      :        :                   :         : 4A        :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : AK22      :        :                   :         : 4A        :                
@@ -961,8 +961,8 @@ VCC                          : Y13       : power  :                   : 1.1V    
 GND                          : Y14       : gnd    :                   :         :           :                
 GND                          : Y15       : gnd    :                   :         :           :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : Y16       :        :                   :         : 3B        :                
-air3                         : Y17       : output : 2.5 V             :         : 4A        : Y              
-air2                         : Y18       : output : 2.5 V             :         : 4A        : Y              
+odor3                        : Y17       : output : 2.5 V             :         : 4A        : Y              
+odor2                        : Y18       : output : 2.5 V             :         : 4A        : Y              
 RESERVED_INPUT_WITH_WEAK_PULLUP : Y19       :        :                   :         : 4A        :                
 GND                          : Y20       : gnd    :                   :         :           :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : Y21       :        :                   :         : 5A        :                
