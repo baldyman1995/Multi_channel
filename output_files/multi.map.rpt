@@ -1,5 +1,5 @@
 Analysis & Synthesis report for multi
-Sun Jul 22 17:03:31 2018
+Mon Jul 23 19:47:56 2018
 Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
 
 
@@ -331,7 +331,7 @@ agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Sun Jul 22 17:03:31 2018       ;
+; Analysis & Synthesis Status     ; Successful - Mon Jul 23 19:47:56 2018       ;
 ; Quartus Prime Version           ; 16.1.0 Build 196 10/24/2016 SJ Lite Edition ;
 ; Revision Name                   ; multi                                       ;
 ; Top-level Entity Name           ; system                                      ;
@@ -8075,7 +8075,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
-    Info: Processing started: Sun Jul 22 17:03:00 2018
+    Info: Processing started: Mon Jul 23 19:47:20 2018
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off multi -c multi
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -8391,7 +8391,7 @@ Info (12128): Elaborating entity "freq" for hierarchy "freq:inst11"
 Warning (10492): VHDL Process Statement warning at gate.vhd(23): signal "gate_p_m" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Baldyman/Desktop/Multi_channel/gate.vhd Line: 23
 Warning (10492): VHDL Process Statement warning at gate.vhd(24): signal "reset_p_m" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Baldyman/Desktop/Multi_channel/gate.vhd Line: 24
 Info (11170): Starting IP generation for the debug fabric: alt_sld_fab.
-Info (11172): 2018.07.22.17:03:19 Progress: Loading sld63346dfb/alt_sld_fab_wrapper_hw.tcl
+Info (11172): 2018.07.23.19:47:43 Progress: Loading sld63346dfb/alt_sld_fab_wrapper_hw.tcl
 Info (11172): Alt_sld_fab.alt_sld_fab: SLD fabric agents which did not specify prefer_host were connected to JTAG
 Info (11172): Alt_sld_fab: Generating alt_sld_fab "alt_sld_fab" for QUARTUS_SYNTH
 Info (11172): Alt_sld_fab: "alt_sld_fab" instantiated alt_sld_fab "alt_sld_fab"
@@ -8432,10 +8432,10 @@ Info (21057): Implemented 3354 device resources after synthesis - the final reso
     Info (21061): Implemented 3189 logic cells
     Info (21064): Implemented 128 RAM segments
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 25 warnings
-    Info: Peak virtual memory: 5031 megabytes
-    Info: Processing ended: Sun Jul 22 17:03:32 2018
-    Info: Elapsed time: 00:00:32
-    Info: Total CPU time (on all processors): 00:00:54
+    Info: Peak virtual memory: 5037 megabytes
+    Info: Processing ended: Mon Jul 23 19:47:56 2018
+    Info: Elapsed time: 00:00:36
+    Info: Total CPU time (on all processors): 00:00:57
 
 
 +------------------------------------------+
