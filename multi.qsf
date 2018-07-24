@@ -60,9 +60,9 @@ set_location_assignment PIN_AF18 -to air2
 set_location_assignment PIN_AJ27 -to f2
 set_location_assignment PIN_AG18 -to air3
 set_location_assignment PIN_AK28 -to f3
-set_location_assignment PIN_AJ20 -to air4
+set_location_assignment PIN_AJ21 -to air4
 set_location_assignment PIN_AJ26 -to f4
-set_location_assignment PIN_AD20 -to air5
+set_location_assignment PIN_AG20 -to air5
 set_location_assignment PIN_AH25 -to f5
 set_location_assignment PIN_AG21 -to air6
 set_location_assignment PIN_AJ24 -to f6
