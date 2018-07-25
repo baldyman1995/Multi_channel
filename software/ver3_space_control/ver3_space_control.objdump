@@ -35,43 +35,43 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY
   8 .debug_aranges 00000450  00000000  00000000  00002620  2**3
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_info   0000595f  00000000  00000000  00002a70  2**0
+  9 .debug_info   00005941  00000000  00000000  00002a70  2**0
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_abbrev 00002078  00000000  00000000  000083cf  2**0
+ 10 .debug_abbrev 0000206b  00000000  00000000  000083b1  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_line   000022fa  00000000  00000000  0000a447  2**0
+ 11 .debug_line   000022fc  00000000  00000000  0000a41c  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_frame  00000630  00000000  00000000  0000c744  2**2
+ 12 .debug_frame  00000630  00000000  00000000  0000c718  2**2
                   CONTENTS, READONLY, DEBUGGING
- 13 .debug_str    00001762  00000000  00000000  0000cd74  2**0
+ 13 .debug_str    00001762  00000000  00000000  0000cd48  2**0
                   CONTENTS, READONLY, DEBUGGING
- 14 .debug_loc    00001c5d  00000000  00000000  0000e4d6  2**0
+ 14 .debug_loc    00001c5d  00000000  00000000  0000e4aa  2**0
                   CONTENTS, READONLY, DEBUGGING
- 15 .debug_alt_sim_info 00000010  00000000  00000000  00010134  2**2
+ 15 .debug_alt_sim_info 00000010  00000000  00000000  00010108  2**2
                   CONTENTS, READONLY, DEBUGGING
- 16 .debug_ranges 00000318  00000000  00000000  00010148  2**3
+ 16 .debug_ranges 00000318  00000000  00000000  00010118  2**3
                   CONTENTS, READONLY, DEBUGGING
- 17 .thread_model 00000003  00000000  00000000  00011936  2**0
+ 17 .thread_model 00000003  00000000  00000000  00011906  2**0
                   CONTENTS, READONLY
- 18 .cpu          0000000c  00000000  00000000  00011939  2**0
+ 18 .cpu          0000000c  00000000  00000000  00011909  2**0
                   CONTENTS, READONLY
- 19 .qsys         00000001  00000000  00000000  00011945  2**0
+ 19 .qsys         00000001  00000000  00000000  00011915  2**0
                   CONTENTS, READONLY
- 20 .simulation_enabled 00000001  00000000  00000000  00011946  2**0
+ 20 .simulation_enabled 00000001  00000000  00000000  00011916  2**0
                   CONTENTS, READONLY
- 21 .stderr_dev   00000004  00000000  00000000  00011947  2**0
+ 21 .stderr_dev   00000004  00000000  00000000  00011917  2**0
                   CONTENTS, READONLY
- 22 .stdin_dev    00000004  00000000  00000000  0001194b  2**0
+ 22 .stdin_dev    00000004  00000000  00000000  0001191b  2**0
                   CONTENTS, READONLY
- 23 .stdout_dev   00000004  00000000  00000000  0001194f  2**0
+ 23 .stdout_dev   00000004  00000000  00000000  0001191f  2**0
                   CONTENTS, READONLY
- 24 .sopc_system_name 00000004  00000000  00000000  00011953  2**0
+ 24 .sopc_system_name 00000004  00000000  00000000  00011923  2**0
                   CONTENTS, READONLY
- 25 .quartus_project_dir 00000027  00000000  00000000  00011957  2**0
+ 25 .quartus_project_dir 00000027  00000000  00000000  00011927  2**0
                   CONTENTS, READONLY
- 26 .jdi          0000388d  00000000  00000000  0001197e  2**0
+ 26 .jdi          0000388d  00000000  00000000  0001194e  2**0
                   CONTENTS, READONLY
- 27 .sopcinfo     000950f9  00000000  00000000  0001520b  2**0
+ 27 .sopcinfo     000950f9  00000000  00000000  000151db  2**0
                   CONTENTS, READONLY
 SYMBOL TABLE:
 00004000 l    d  .entry	00000000 .entry
@@ -610,21 +610,22 @@ static void freq_isr(){
     41cc:	dc400115 	stw	r17,4(sp)
     41d0:	dc000015 	stw	r16,0(sp)
 
-
+	// interrupt function to send frequency data through uart
+	// reset the timer
 	IOWR_ALTERA_AVALON_TIMER_STATUS(TIMER_0_BASE,
     41d4:	00a40814 	movui	r2,36896
     41d8:	00ffff84 	movi	r3,-2
     41dc:	10c00035 	stwio	r3,0(r2)
-	      ~ ALTERA_AVALON_TIMER_STATUS_TO_MSK);
-
+	// send the data using printf
+	// " " is useful when collecting datas
 	alt_u32 p = 0x000000;
 	int i;
 	for(i=0;i<8;i++){
 		switch(i){
     41e0:	04c00034 	movhi	r19,0
-	IOWR_ALTERA_AVALON_TIMER_STATUS(TIMER_0_BASE,
-	      ~ ALTERA_AVALON_TIMER_STATUS_TO_MSK);
-
+	// read the data from PIO and save in HEX form
+	// send the data using printf
+	// " " is useful when collecting datas
 	alt_u32 p = 0x000000;
 	int i;
 	for(i=0;i<8;i++){
@@ -633,8 +634,8 @@ static void freq_isr(){
     41e8:	04400184 	movi	r17,6
 			case 0:p = IORD_ALTERA_AVALON_PIO_DATA(FREQ_0_BASE);break;
     41ec:	04a43014 	movui	r18,37056
-	      ~ ALTERA_AVALON_TIMER_STATUS_TO_MSK);
-
+	// send the data using printf
+	// " " is useful when collecting datas
 	alt_u32 p = 0x000000;
 	int i;
 	for(i=0;i<8;i++){
@@ -685,9 +686,9 @@ static void freq_isr(){
 		printf(" ");
     4274:	01000804 	movi	r4,32
     4278:	00046540 	call	4654 <putchar>
-	IOWR_ALTERA_AVALON_TIMER_STATUS(TIMER_0_BASE,
-	      ~ ALTERA_AVALON_TIMER_STATUS_TO_MSK);
-
+	// read the data from PIO and save in HEX form
+	// send the data using printf
+	// " " is useful when collecting datas
 	alt_u32 p = 0x000000;
 	int i;
 	for(i=0;i<8;i++){
@@ -726,6 +727,8 @@ unsigned int timer_isr_context;
 void uart_init(){
     42a8:	deffff04 	addi	sp,sp,-4
     42ac:	dfc00015 	stw	ra,0(sp)
+
+	//do the initialization for uart and send back the finish signal
 	IOWR_ALTERA_AVALON_UART_STATUS(UART_BASE,0);
     42b0:	00a40214 	movui	r2,36872
     42b4:	10000035 	stwio	zero,0(r2)
@@ -744,7 +747,7 @@ void uart_init(){
     42d8:	dfc00017 	ldw	ra,0(sp)
     42dc:	dec00104 	addi	sp,sp,4
 
-void uart_init(){
+	//do the initialization for uart and send back the finish signal
 	IOWR_ALTERA_AVALON_UART_STATUS(UART_BASE,0);
 	IOWR_ALTERA_AVALON_UART_CONTROL(UART_BASE,0X80);
 	printf("Initialized \n");
@@ -774,11 +777,11 @@ void pwm(int *get_perc){
 void pwm(int *get_perc){
     42ec:	dfc00115 	stw	ra,4(sp)
     42f0:	dc000015 	stw	r16,0(sp)
+	int *data_pwm = get_perc;// data in int form
+	int i;//index
+	int pwm_rec = 0x00;//hex form data
 
-	int *data_pwm = get_perc;
-	int i;
-	int pwm_rec = 0x00;
-
+	// change the int data into HEX form and send to PIO
 	for(i=0;i<8;i++){
     42f4:	000b883a 	mov	r5,zero
 
@@ -849,11 +852,11 @@ void pwm(int *get_perc){
 				case 0:IOWR_ALTERA_AVALON_PIO_DATA(PWM_0_BASE,pwm_rec);break;
 				case 1:IOWR_ALTERA_AVALON_PIO_DATA(PWM_1_BASE,pwm_rec);break;
     4320:	04241414 	movui	r16,36944
+	int *data_pwm = get_perc;// data in int form
+	int i;//index
+	int pwm_rec = 0x00;//hex form data
 
-	int *data_pwm = get_perc;
-	int i;
-	int pwm_rec = 0x00;
-
+	// change the int data into HEX form and send to PIO
 	for(i=0;i<8;i++){
     4324:	01800204 	movi	r6,8
 
@@ -904,11 +907,11 @@ void pwm(int *get_perc){
     43a0:	00000106 	br	43a8 <pwm+0xc4>
 				case 7:IOWR_ALTERA_AVALON_PIO_DATA(PWM_7_BASE,pwm_rec);break;
     43a4:	58800035 	stwio	r2,0(r11)
+	int *data_pwm = get_perc;// data in int form
+	int i;//index
+	int pwm_rec = 0x00;//hex form data
 
-	int *data_pwm = get_perc;
-	int i;
-	int pwm_rec = 0x00;
-
+	// change the int data into HEX form and send to PIO
 	for(i=0;i<8;i++){
     43a8:	29400044 	addi	r5,r5,1
     43ac:	21000104 	addi	r4,r4,4
@@ -934,7 +937,7 @@ static void uart_isr(){
     43c4:	0005883a 	mov	r2,zero
 
 
-
+	// catching commands until received "enter"('\n')
 	while(1){
 
 		while(!((IORD_ALTERA_AVALON_UART_STATUS(UART_BASE)&ALTERA_AVALON_UART_STATUS_RRDY_MSK)));
@@ -949,7 +952,7 @@ static void uart_isr(){
     43d0:	01800284 	movi	r6,10
 
 
-
+	// catching commands until received "enter"('\n')
 	while(1){
 
 		while(!((IORD_ALTERA_AVALON_UART_STATUS(UART_BASE)&ALTERA_AVALON_UART_STATUS_RRDY_MSK)));
@@ -973,7 +976,7 @@ static void uart_isr(){
     4400:	39800326 	beq	r7,r6,4410 <uart_isr+0x4c>
 			break;
 		};
-
+		// save commands characters
 		save[z] = rx_data;
     4404:	10c00005 	stb	r3,0(r2)
     4408:	10800044 	addi	r2,r2,1
@@ -982,7 +985,7 @@ static void uart_isr(){
 	};
     440c:	003ff106 	br	43d4 <_gp+0xffff6df0>
 
-
+	// compare received command with true command with only first 3 characters
 	int result_p = strncmp(cmd_pwm,save,3);
     4410:	01000034 	movhi	r4,0
 	printf("\n");
@@ -996,7 +999,7 @@ static void uart_isr(){
 		z++;
 	};
 
-
+	// compare received command with true command with only first 3 characters
 	int result_p = strncmp(cmd_pwm,save,3);
     4418:	018000c4 	movi	r6,3
     441c:	000b883a 	mov	r5,zero
@@ -1018,17 +1021,15 @@ static void uart_isr(){
 		z++;
 	};
 
-
+	// compare received command with true command with only first 3 characters
 	int result_p = strncmp(cmd_pwm,save,3);
     4440:	00047200 	call	4720 <strncmp>
 
-
+	// if command is true, catching pwm data
 	if(result_p == 0){
     4444:	1000271e 	bne	r2,zero,44e4 <uart_isr+0x120>
     4448:	0009883a 	mov	r4,zero
     444c:	0023883a 	mov	r17,zero
-
-
 
 		while(1){
 
@@ -1040,7 +1041,7 @@ static void uart_isr(){
 
 
 			while(!((IORD_ALTERA_AVALON_UART_STATUS(UART_BASE)&ALTERA_AVALON_UART_STATUS_TRDY_MSK)));
-
+			// data is divided by space and all data is end with an "Enter"
 			if(rx_data == '\n'){
     4458:	05000284 	movi	r20,10
 				data_pwm[j] = cont;
@@ -1048,8 +1049,8 @@ static void uart_isr(){
 			}
 			else if(rx_data == 32){
     445c:	05400804 	movi	r21,32
-
-
+	// if command is true, catching pwm data
+	if(result_p == 0){
 
 		while(1){
 
@@ -1068,14 +1069,14 @@ static void uart_isr(){
     4478:	18800037 	ldwio	r2,0(r3)
     447c:	1080100c 	andi	r2,r2,64
     4480:	103ffd26 	beq	r2,zero,4478 <_gp+0xffff6e94>
-
+			// data is divided by space and all data is end with an "Enter"
 			if(rx_data == '\n'){
     4484:	d4204203 	ldbu	r16,-32504(gp)
     4488:	85000a1e 	bne	r16,r20,44b4 <uart_isr+0xf0>
-			}
 		};
 
 
+		//send pwm data to the pwm execute function
 
 		pwm(data_pwm);
     448c:	0009883a 	mov	r4,zero
@@ -1093,14 +1094,14 @@ static void uart_isr(){
     44a4:	dc400117 	ldw	r17,4(sp)
     44a8:	dc000017 	ldw	r16,0(sp)
     44ac:	dec00704 	addi	sp,sp,28
-			}
 		};
 
 
+		//send pwm data to the pwm execute function
 
 		pwm(data_pwm);
     44b0:	00042e41 	jmpi	42e4 <pwm>
-
+			// data is divided by space and all data is end with an "Enter"
 			if(rx_data == '\n'){
 				data_pwm[j] = cont;
 				break;
@@ -1118,6 +1119,7 @@ static void uart_isr(){
     44cc:	003fe406 	br	4460 <_gp+0xffff6e7c>
 			}
 			else{
+				//all received data is char, so using this to convert the data into real numbers
 				cont = ((int)rx_data - 48) + cont * 10;
     44d0:	01400284 	movi	r5,10
     44d4:	000459c0 	call	459c <__mulsi3>
@@ -1149,8 +1151,11 @@ static void uart_isr(){
 void timer_init(){
     4508:	defffe04 	addi	sp,sp,-8
     450c:	dfc00115 	stw	ra,4(sp)
+	//initialization of timer
+
 	void* isr_context_ptr = (void*) &timer_isr_context;
 
+	//set the period to 1 second
 	IOWR_ALTERA_AVALON_TIMER_PERIODH(TIMER_0_BASE, 0x02FA);
     4510:	00a40b14 	movui	r2,36908
     4514:	00c0be84 	movi	r3,762
@@ -1168,7 +1173,7 @@ void timer_init(){
 	ALTERA_AVALON_TIMER_CONTROL_CONT_MSK  |
 	ALTERA_AVALON_TIMER_CONTROL_ITO_MSK);
 
-
+	//set the interrupt function
 	alt_ic_isr_register(
     4534:	01800034 	movhi	r6,0
     4538:	d8000015 	stw	zero,0(sp)
@@ -1216,11 +1221,11 @@ int main(){
     4570:	01000034 	movhi	r4,0
     4574:	21153604 	addi	r4,r4,21720
     4578:	00046f00 	call	46f0 <puts>
-	uart_init();
+	uart_init();//uart initialization
     457c:	00042a80 	call	42a8 <uart_init>
-	timer_init();
+	timer_init();//timer intialization
     4580:	00045080 	call	4508 <timer_init>
-	alt_irq_register(UART_IRQ,NULL,uart_isr);
+	alt_irq_register(UART_IRQ,NULL,uart_isr);//set uart interrupt monitor
     4584:	01800034 	movhi	r6,0
     4588:	3190f104 	addi	r6,r6,17348
     458c:	000b883a 	mov	r5,zero

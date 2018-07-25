@@ -1,4 +1,4 @@
-14:55:52 **** Build of configuration Nios II for project ver3_space_control ****
+18:22:05 **** Build of configuration Nios II for project ver3_space_control ****
 make mem_init_generate 
 Info: Building ../ver3_space_control_bsp/
 D:/intelFPGA_lite/16.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ver3_space_control_bsp/

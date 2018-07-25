@@ -1,5 +1,5 @@
 Fitter report for multi
-Tue Jul 24 17:29:46 2018
+Tue Jul 24 18:24:24 2018
 Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
 
 
@@ -65,7 +65,7 @@ agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Fitter Summary                                                                ;
 +---------------------------------+---------------------------------------------+
-; Fitter Status                   ; Successful - Tue Jul 24 17:29:45 2018       ;
+; Fitter Status                   ; Successful - Tue Jul 24 18:24:24 2018       ;
 ; Quartus Prime Version           ; 16.1.0 Build 196 10/24/2016 SJ Lite Edition ;
 ; Revision Name                   ; multi                                       ;
 ; Top-level Entity Name           ; system                                      ;
@@ -155,14 +155,14 @@ agreement for further details.
 ; Number detected on machine ; 8           ;
 ; Maximum allowed            ; 4           ;
 ;                            ;             ;
-; Average used               ; 1.11        ;
+; Average used               ; 1.12        ;
 ; Maximum used               ; 4           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   3.6%      ;
-;     Processor 3            ;   3.5%      ;
-;     Processor 4            ;   3.5%      ;
+;     Processor 2            ;   4.0%      ;
+;     Processor 3            ;   3.9%      ;
+;     Processor 4            ;   3.9%      ;
 +----------------------------+-------------+
 
 
@@ -2376,7 +2376,7 @@ Info (332111): Found 1 clocks
     Info (332111):   33.333 altera_reserved_tck
 Info (176235): Finished register packing
     Extra Info (176219): No registers were packed into other blocks
-Info (11798): Fitter preparation operations ending: elapsed time is 00:00:14
+Info (11798): Fitter preparation operations ending: elapsed time is 00:00:12
 Info (170189): Fitter placement preparation operations beginning
 Info (14951): The Fitter is using Advanced Physical Optimization.
 Info (170190): Fitter placement preparation operations ending: elapsed time is 00:00:06
@@ -2389,7 +2389,7 @@ Info (170195): Router estimated average interconnect usage is 1% of the availabl
 Info (170199): The Fitter performed an Auto Fit compilation.  Optimizations were skipped to reduce compilation time.
     Info (170201): Optimizations that may affect the design's routability were skipped
 Info (170194): Fitter routing operations ending: elapsed time is 00:00:09
-Info (11888): Total time spent on timing analysis during the Fitter is 1.39 seconds.
+Info (11888): Total time spent on timing analysis during the Fitter is 1.35 seconds.
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (334003): Started post-fitting delay annotation
@@ -2397,10 +2397,10 @@ Info (334004): Delay annotation completed successfully
 Info (11801): Fitter post-fit operations ending: elapsed time is 00:00:08
 Info (144001): Generated suppressed messages file C:/Users/Baldyman/Desktop/Multi_channel/output_files/multi.fit.smsg
 Info: Quartus Prime Fitter was successful. 0 errors, 25 warnings
-    Info: Peak virtual memory: 6727 megabytes
-    Info: Processing ended: Tue Jul 24 17:29:47 2018
-    Info: Elapsed time: 00:01:08
-    Info: Total CPU time (on all processors): 00:02:25
+    Info: Peak virtual memory: 6750 megabytes
+    Info: Processing ended: Tue Jul 24 18:24:25 2018
+    Info: Elapsed time: 00:01:04
+    Info: Total CPU time (on all processors): 00:02:22
 
 
 +----------------------------+

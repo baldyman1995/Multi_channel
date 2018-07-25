@@ -1,5 +1,5 @@
 TimeQuest Timing Analyzer report for multi
-Tue Jul 24 17:30:12 2018
+Tue Jul 24 18:24:47 2018
 Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
 
 
@@ -102,14 +102,14 @@ agreement for further details.
 ; Number detected on machine ; 8           ;
 ; Maximum allowed            ; 4           ;
 ;                            ;             ;
-; Average used               ; 1.58        ;
+; Average used               ; 1.69        ;
 ; Maximum used               ; 4           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;  19.4%      ;
-;     Processor 3            ;  19.3%      ;
-;     Processor 4            ;  19.3%      ;
+;     Processor 2            ;  23.2%      ;
+;     Processor 3            ;  23.1%      ;
+;     Processor 4            ;  23.1%      ;
 +----------------------------+-------------+
 
 
@@ -752,7 +752,7 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 Info: *******************************************************************
 Info: Running Quartus Prime TimeQuest Timing Analyzer
     Info: Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
-    Info: Processing started: Tue Jul 24 17:30:01 2018
+    Info: Processing started: Tue Jul 24 18:24:38 2018
 Info: Command: quartus_sta multi -c multi
 Info: qsta_default_script.tcl version: #1
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
@@ -1005,9 +1005,9 @@ Info (332114): Report Metastability: Found 2 synchronizer chains.
 Info (332102): Design is not fully constrained for setup requirements
 Info (332102): Design is not fully constrained for hold requirements
 Info: Quartus Prime TimeQuest Timing Analyzer was successful. 0 errors, 47 warnings
-    Info: Peak virtual memory: 5235 megabytes
-    Info: Processing ended: Tue Jul 24 17:30:12 2018
-    Info: Elapsed time: 00:00:11
-    Info: Total CPU time (on all processors): 00:00:13
+    Info: Peak virtual memory: 5234 megabytes
+    Info: Processing ended: Tue Jul 24 18:24:47 2018
+    Info: Elapsed time: 00:00:09
+    Info: Total CPU time (on all processors): 00:00:14
 
 
