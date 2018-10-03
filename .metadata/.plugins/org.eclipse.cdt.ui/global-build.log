@@ -11,3 +11,9 @@ elf2dat --infile=ver3_space_control.elf --outfile=mem_init/hdl_sim/core_onchip_m
 		--little-endian-mem --create-lanes=0 
 Post-processing to create mem_init/hdl_sim/core_onchip_memory2_0.sym...
 nios2-elf-nm -n ver3_space_control.elf > mem_init/hdl_sim/core_onchip_memory2_0.sym
+12:16:02 **** Build of configuration Nios II for project ver3_space_control ****
+make all 
+Info: Building ../ver3_space_control_bsp/
+D:/intelFPGA_lite/16.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ver3_space_control_bsp/
+[BSP build complete]
+[ver3_space_control build complete]

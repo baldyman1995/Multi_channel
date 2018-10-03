@@ -126,4 +126,6 @@ set_global_assignment -name VHDL_FILE pwm.vhd
 set_global_assignment -name VHDL_FILE gate.vhd
 set_global_assignment -name VHDL_FILE pwm_gatee.vhd
 set_global_assignment -name BDF_FILE system.bdf
+set_global_assignment -name VHDL_FILE SHT_clk.vhd
+set_global_assignment -name VERILOG_FILE SHT_sensor.v
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

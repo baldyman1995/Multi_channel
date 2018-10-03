@@ -195,7 +195,7 @@ agreement for further details.
 		(text "uart_external_connection" (rect 79 723 302 1459)(font "Arial" (color 128 0 0)(font_size 9)))
 		(text "rxd" (rect 229 747 476 1504)(font "Arial" (color 0 0 0)))
 		(text "txd" (rect 229 763 476 1536)(font "Arial" (color 0 0 0)))
-		(text " core " (rect 474 784 984 1578)(font "Arial" ))
+		(text " system " (rect 461 784 970 1578)(font "Arial" ))
 		(line (pt 224 32)(pt 272 32)(line_width 1))
 		(line (pt 272 32)(pt 272 784)(line_width 1))
 		(line (pt 224 784)(pt 272 784)(line_width 1))

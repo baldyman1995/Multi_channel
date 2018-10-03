@@ -1,16 +1,9 @@
-18:22:05 **** Build of configuration Nios II for project ver3_space_control ****
-make mem_init_generate 
+12:16:02 **** Build of configuration Nios II for project ver3_space_control ****
+make all 
 Info: Building ../ver3_space_control_bsp/
 D:/intelFPGA_lite/16.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../ver3_space_control_bsp/
 [BSP build complete]
-Post-processing to create mem_init/core_onchip_memory2_0.hex...
-elf2hex ver3_space_control.elf 0x00004000 0x00007fff --width=32 --little-endian-mem --create-lanes=0 mem_init/core_onchip_memory2_0.hex
-Post-processing to create mem_init/hdl_sim/core_onchip_memory2_0.dat...
-elf2dat --infile=ver3_space_control.elf --outfile=mem_init/hdl_sim/core_onchip_memory2_0.dat \
-		--base=0x00004000 --end=0x00007fff --width=32 \
-		--little-endian-mem --create-lanes=0 
-Post-processing to create mem_init/hdl_sim/core_onchip_memory2_0.sym...
-nios2-elf-nm -n ver3_space_control.elf > mem_init/hdl_sim/core_onchip_memory2_0.sym
+[ver3_space_control build complete]
 
-18:22:07 Build Finished (took 1s.953ms)
+12:16:05 Build Finished (took 2s.829ms)
 
