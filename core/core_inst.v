@@ -8,6 +8,7 @@
 		.freq_5_external_connection_export (<connected-to-freq_5_external_connection_export>), // freq_5_external_connection.export
 		.freq_6_external_connection_export (<connected-to-freq_6_external_connection_export>), // freq_6_external_connection.export
 		.freq_7_external_connection_export (<connected-to-freq_7_external_connection_export>), // freq_7_external_connection.export
+		.hum_export                        (<connected-to-hum_export>),                        //                        hum.export
 		.pwm_0_external_connection_export  (<connected-to-pwm_0_external_connection_export>),  //  pwm_0_external_connection.export
 		.pwm_1_external_connection_export  (<connected-to-pwm_1_external_connection_export>),  //  pwm_1_external_connection.export
 		.pwm_2_external_connection_export  (<connected-to-pwm_2_external_connection_export>),  //  pwm_2_external_connection.export
@@ -16,6 +17,7 @@
 		.pwm_5_external_connection_export  (<connected-to-pwm_5_external_connection_export>),  //  pwm_5_external_connection.export
 		.pwm_6_external_connection_export  (<connected-to-pwm_6_external_connection_export>),  //  pwm_6_external_connection.export
 		.pwm_7_external_connection_export  (<connected-to-pwm_7_external_connection_export>),  //  pwm_7_external_connection.export
+		.tem_export                        (<connected-to-tem_export>),                        //                        tem.export
 		.uart_external_connection_rxd      (<connected-to-uart_external_connection_rxd>),      //   uart_external_connection.rxd
 		.uart_external_connection_txd      (<connected-to-uart_external_connection_txd>)       //                           .txd
 	);

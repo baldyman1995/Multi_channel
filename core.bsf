@@ -21,9 +21,9 @@ agreement for further details.
 */
 (header "symbol" (version "1.1"))
 (symbol
-	(rect 16 16 448 224)
+	(rect 16 16 448 256)
 	(text "core" (rect 5 0 22 12)(font "Arial" ))
-	(text "inst" (rect 8 192 20 204)(font "Arial" ))
+	(text "inst" (rect 8 224 20 236)(font "Arial" ))
 	(port
 		(pt 0 32)
 		(input)
@@ -90,9 +90,23 @@ agreement for further details.
 	(port
 		(pt 0 176)
 		(input)
+		(text "hum_export[15..0]" (rect 0 0 71 12)(font "Arial" ))
+		(text "hum_export[15..0]" (rect 21 171 92 183)(font "Arial" ))
+		(line (pt 0 176)(pt 16 176)(line_width 3))
+	)
+	(port
+		(pt 0 192)
+		(input)
+		(text "tem_export[15..0]" (rect 0 0 69 12)(font "Arial" ))
+		(text "tem_export[15..0]" (rect 21 187 90 199)(font "Arial" ))
+		(line (pt 0 192)(pt 16 192)(line_width 3))
+	)
+	(port
+		(pt 0 208)
+		(input)
 		(text "uart_external_connection_rxd" (rect 0 0 118 12)(font "Arial" ))
-		(text "uart_external_connection_rxd" (rect 21 171 139 183)(font "Arial" ))
-		(line (pt 0 176)(pt 16 176)(line_width 1))
+		(text "uart_external_connection_rxd" (rect 21 203 139 215)(font "Arial" ))
+		(line (pt 0 208)(pt 16 208)(line_width 1))
 	)
 	(port
 		(pt 432 32)
@@ -158,6 +172,6 @@ agreement for further details.
 		(line (pt 432 160)(pt 416 160)(line_width 1))
 	)
 	(drawing
-		(rectangle (rect 16 16 416 192)(line_width 1))
+		(rectangle (rect 16 16 416 224)(line_width 1))
 	)
 )

@@ -72,7 +72,27 @@
 					"strict" : false
 				},
 				{
+					"name" : "sck",
+					"strict" : false
+				},
+				{
+					"name" : "check",
+					"strict" : false
+				},
+				{
+					"name" : "sda",
+					"strict" : false
+				},
+				{
 					"name" : "clk",
+					"strict" : false
+				},
+				{
+					"name" : "res",
+					"strict" : false
+				},
+				{
+					"name" : "clk_50M_2",
 					"strict" : false
 				},
 				{

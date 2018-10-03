@@ -23,11 +23,11 @@ ARCHITECTURE gate OF SHT_C IS
 			
 				count <= count + 1;
 				
-				IF(count = 5) THEN
+				IF(count = 20) THEN
 					
 					clk_reg <= '0';
 					
-				ELSIF(count = 5) THEN
+				ELSIF(count = 40) THEN
 					
 					clk_reg <= '1';
 					count <= 0;						
