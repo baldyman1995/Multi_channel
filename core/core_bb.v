@@ -20,7 +20,8 @@ module core (
 	pwm_7_external_connection_export,
 	tem_export,
 	uart_external_connection_rxd,
-	uart_external_connection_txd);	
+	uart_external_connection_txd,
+	sht_reset_export);	
 
 	input		clk_clk;
 	input	[23:0]	freq_0_external_connection_export;
@@ -43,4 +44,5 @@ module core (
 	input	[15:0]	tem_export;
 	input		uart_external_connection_rxd;
 	output		uart_external_connection_txd;
+	output		sht_reset_export;
 endmodule

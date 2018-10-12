@@ -88,10 +88,6 @@
 					"strict" : false
 				},
 				{
-					"name" : "res",
-					"strict" : false
-				},
-				{
 					"name" : "clk_50M_2",
 					"strict" : false
 				},

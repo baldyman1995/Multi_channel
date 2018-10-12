@@ -19,6 +19,7 @@
 		.pwm_7_external_connection_export  (<connected-to-pwm_7_external_connection_export>),  //  pwm_7_external_connection.export
 		.tem_export                        (<connected-to-tem_export>),                        //                        tem.export
 		.uart_external_connection_rxd      (<connected-to-uart_external_connection_rxd>),      //   uart_external_connection.rxd
-		.uart_external_connection_txd      (<connected-to-uart_external_connection_txd>)       //                           .txd
+		.uart_external_connection_txd      (<connected-to-uart_external_connection_txd>),      //                           .txd
+		.sht_reset_export                  (<connected-to-sht_reset_export>)                   //                  sht_reset.export
 	);
 

@@ -94,9 +94,10 @@ set_location_assignment PIN_AF24 -to Humi[8]
 set_location_assignment PIN_AG22 -to Humi[9]
 set_location_assignment PIN_AH22 -to Humi[10]
 set_location_assignment PIN_AE12 -to res
-set_global_assignment -name QIP_FILE software/ver4_humidity/mem_init/meminit.qip
+set_global_assignment -name QIP_FILE software/ver5_internal_reset/mem_init/meminit.qip
 set_global_assignment -name VERILOG_FILE core/synthesis/submodules/core_uart.v
 set_global_assignment -name VERILOG_FILE core/synthesis/submodules/core_timer_0.v
+set_global_assignment -name VERILOG_FILE core/synthesis/submodules/core_SHT_reset.v
 set_global_assignment -name VERILOG_FILE core/synthesis/submodules/core_sensor_reset.v
 set_global_assignment -name VERILOG_FILE core/synthesis/submodules/core_pwm_0.v
 set_global_assignment -name VERILOG_FILE core/synthesis/submodules/core_onchip_memory2_0.v

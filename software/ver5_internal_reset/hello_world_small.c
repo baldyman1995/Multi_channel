@@ -1,0 +1,234 @@
+
+
+#include "sys/alt_stdio.h"
+
+
+#include <stdio.h>
+#include <stdlib.h>
+#include "system.h"
+#include "altera_avalon_pio_regs.h"
+#include "altera_avalon_uart_regs.h"
+#include <string.h>
+#include "alt_types.h"
+#include "sys/alt_irq.h"
+#include "altera_avalon_timer_regs.h"
+#include "unistd.h"
+
+static alt_u8 rx_data = 0;
+static alt_u8 tx_data = 0;
+
+unsigned int timer_isr_context;
+
+
+void uart_init(){
+
+	//do the initialization for uart and send back the finish signal
+	IOWR_ALTERA_AVALON_UART_STATUS(UART_BASE,0);
+	IOWR_ALTERA_AVALON_UART_CONTROL(UART_BASE,0X80);
+	printf("Initialized \n");
+	printf("***************** \n");
+}
+
+static void freq_isr(){
+
+	// interrupt function to send frequency data through uart
+	// reset the timer
+	IOWR_ALTERA_AVALON_TIMER_STATUS(TIMER_0_BASE,
+	      ~ ALTERA_AVALON_TIMER_STATUS_TO_MSK);
+
+	// read the data from PIO and save in HEX form
+	// send the data using printf
+	// " " is useful when collecting datas
+	alt_u32 p = 0x000000;
+	alt_u32 h = 0x0000;
+	alt_u32 t = 0x0000;
+	int i;
+	for(i=0;i<8;i++){
+		switch(i){
+			case 0:p = IORD_ALTERA_AVALON_PIO_DATA(FREQ_0_BASE);break;
+			case 1:p = IORD_ALTERA_AVALON_PIO_DATA(FREQ_1_BASE);break;
+			case 2:p = IORD_ALTERA_AVALON_PIO_DATA(FREQ_2_BASE);break;
+			case 3:p = IORD_ALTERA_AVALON_PIO_DATA(FREQ_3_BASE);break;
+			case 4:p = IORD_ALTERA_AVALON_PIO_DATA(FREQ_4_BASE);break;
+			case 5:p = IORD_ALTERA_AVALON_PIO_DATA(FREQ_5_BASE);break;
+			case 6:p = IORD_ALTERA_AVALON_PIO_DATA(FREQ_6_BASE);break;
+			case 7:p = IORD_ALTERA_AVALON_PIO_DATA(FREQ_7_BASE);break;
+			};
+		printf("%u",p);
+		printf(" ");
+	}
+	h = IORD_ALTERA_AVALON_PIO_DATA(HUM_BASE);
+	printf("%u",h);
+	printf(" ");
+	t = IORD_ALTERA_AVALON_PIO_DATA(TEM_BASE);
+	printf("%u",t);
+	printf("\n");
+
+}
+
+
+static void uart_isr(){
+
+	//interrupt function of uart
+	volatile char *save; // storage of command
+	volatile int perc_in[24]; // storage of received pwm data
+	int z = 0; //index of command
+	int j = 0; //index of data
+	char *cmd_pwm = "pwm"; // true string of pwm command
+	int cont=0; // convert char to int
+	int *data_pwm; // save int data
+
+
+	// catching commands until received "enter"('\n')
+	while(1){
+
+		while(!((IORD_ALTERA_AVALON_UART_STATUS(UART_BASE)&ALTERA_AVALON_UART_STATUS_RRDY_MSK)));
+
+		rx_data = IORD_ALTERA_AVALON_UART_RXDATA(UART_BASE);
+
+		while(!((IORD_ALTERA_AVALON_UART_STATUS(UART_BASE)&ALTERA_AVALON_UART_STATUS_TRDY_MSK)));
+
+		if(rx_data == '\n'){
+			break;
+		};
+		// save commands characters
+		save[z] = rx_data;
+
+		z++;
+	};
+
+	// compare received command with true command with only first 3 characters
+	int result_p = strncmp(cmd_pwm,save,3);
+
+	// if command is true, catching pwm data
+	if(result_p == 0){
+
+		while(1){
+
+			while(!((IORD_ALTERA_AVALON_UART_STATUS(UART_BASE)&ALTERA_AVALON_UART_STATUS_RRDY_MSK)));
+
+			rx_data = IORD_ALTERA_AVALON_UART_RXDATA(UART_BASE);
+
+
+			while(!((IORD_ALTERA_AVALON_UART_STATUS(UART_BASE)&ALTERA_AVALON_UART_STATUS_TRDY_MSK)));
+			// data is divided by space and all data is end with an "Enter"
+			if(rx_data == '\n'){
+				data_pwm[j] = cont;
+				break;
+			}
+			else if(rx_data == 32){
+				data_pwm[j] = cont;
+				j++;
+				cont = 0;
+			}
+			else{
+				//all received data is char, so using this to convert the data into real numbers
+				cont = ((int)rx_data - 48) + cont * 10;
+			}
+		};
+
+
+		//send pwm data to the pwm execute function
+
+		pwm(data_pwm);
+
+	}
+	else{
+
+	};
+
+}
+
+void pwm(int *get_perc){
+// pwm execute function
+
+
+	int *data_pwm = get_perc;// data in int form
+	int i;//index
+	int pwm_rec = 0x00;//hex form data
+
+	// change the int data into HEX form and send to PIO
+	for(i=0;i<8;i++){
+
+		if(data_pwm[i]<=100){
+			for(int j=0;j<data_pwm[i];j++){
+				pwm_rec = pwm_rec + 1;
+			}
+
+
+			switch(i){
+				case 0:IOWR_ALTERA_AVALON_PIO_DATA(PWM_0_BASE,pwm_rec);break;
+				case 1:IOWR_ALTERA_AVALON_PIO_DATA(PWM_1_BASE,pwm_rec);break;
+				case 2:IOWR_ALTERA_AVALON_PIO_DATA(PWM_2_BASE,pwm_rec);break;
+				case 3:IOWR_ALTERA_AVALON_PIO_DATA(PWM_3_BASE,pwm_rec);break;
+				case 4:IOWR_ALTERA_AVALON_PIO_DATA(PWM_4_BASE,pwm_rec);break;
+				case 5:IOWR_ALTERA_AVALON_PIO_DATA(PWM_5_BASE,pwm_rec);break;
+				case 6:IOWR_ALTERA_AVALON_PIO_DATA(PWM_6_BASE,pwm_rec);break;
+				case 7:IOWR_ALTERA_AVALON_PIO_DATA(PWM_7_BASE,pwm_rec);break;
+
+			};
+
+		}
+		else{
+
+		};
+		pwm_rec = 0x00;
+	}
+}
+
+void timer_init(){
+
+	//initialization of timer
+
+	void* isr_context_ptr = (void*) &timer_isr_context;
+
+	//set the period to 1 second
+	IOWR_ALTERA_AVALON_TIMER_PERIODH(TIMER_0_BASE, 0x02FA);
+	IOWR_ALTERA_AVALON_TIMER_PERIODL(TIMER_0_BASE, 0xF080);
+
+	IOWR_ALTERA_AVALON_TIMER_CONTROL(TIMER_0_BASE,
+	ALTERA_AVALON_TIMER_CONTROL_START_MSK |
+	ALTERA_AVALON_TIMER_CONTROL_CONT_MSK  |
+	ALTERA_AVALON_TIMER_CONTROL_ITO_MSK);
+
+	//set the interrupt function
+	alt_ic_isr_register(
+	      TIMER_0_IRQ_INTERRUPT_CONTROLLER_ID,
+	      TIMER_0_IRQ,
+	      freq_isr,
+	      isr_context_ptr,
+	      0x0);
+}
+
+
+
+int main(){
+	printf("System Start \n");
+	printf("***************** \n");
+
+	IOWR_ALTERA_AVALON_PIO_DATA(SHT_RESET_BASE,1);
+
+	int c, d;
+
+	for (c = 1; c <= 200; c++){
+		for (d = 1; d <= 200; d++){};
+	};
+
+	IOWR_ALTERA_AVALON_PIO_DATA(SHT_RESET_BASE,0);
+
+	for (c = 1; c <= 200; c++){
+			for (d = 1; d <= 200; d++){};
+	};
+
+	IOWR_ALTERA_AVALON_PIO_DATA(SHT_RESET_BASE,1);
+
+	for (c = 1; c <= 200; c++){
+			for (d = 1; d <= 200; d++){};
+	};
+
+	uart_init();//uart initialization
+	timer_init();//timer intialization
+	alt_irq_register(UART_IRQ,NULL,uart_isr);//set uart interrupt monitor
+	while(1){}
+	return 0;
+}

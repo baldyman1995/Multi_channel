@@ -1,5 +1,5 @@
 Flow report for multi
-Tue Oct 02 17:51:30 2018
+Fri Oct 12 13:46:00 2018
 Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
 
 
@@ -41,16 +41,16 @@ agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Flow Summary                                                                  ;
 +---------------------------------+---------------------------------------------+
-; Flow Status                     ; Successful - Tue Oct 02 17:51:15 2018       ;
+; Flow Status                     ; Successful - Fri Oct 12 13:45:45 2018       ;
 ; Quartus Prime Version           ; 16.1.0 Build 196 10/24/2016 SJ Lite Edition ;
 ; Revision Name                   ; multi                                       ;
 ; Top-level Entity Name           ; system                                      ;
 ; Family                          ; Cyclone V                                   ;
 ; Device                          ; 5CSEMA5F31C6                                ;
 ; Timing Models                   ; Final                                       ;
-; Logic utilization (in ALMs)     ; 1,364 / 32,070 ( 4 % )                      ;
-; Total registers                 ; 2481                                        ;
-; Total pins                      ; 39 / 457 ( 9 % )                            ;
+; Logic utilization (in ALMs)     ; 1,363 / 32,070 ( 4 % )                      ;
+; Total registers                 ; 2480                                        ;
+; Total pins                      ; 38 / 457 ( 8 % )                            ;
 ; Total virtual pins              ; 0                                           ;
 ; Total block memory bits         ; 141,312 / 4,065,280 ( 3 % )                 ;
 ; Total DSP Blocks                ; 0 / 87 ( 0 % )                              ;
@@ -68,7 +68,7 @@ agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 10/02/2018 17:48:44 ;
+; Start date & time ; 10/12/2018 13:42:56 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; multi               ;
 +-------------------+---------------------+
@@ -79,7 +79,7 @@ agreement for further details.
 +-------------------------------------+----------------------------------------+---------------+-------------+------------+
 ; Assignment Name                     ; Value                                  ; Default Value ; Entity Name ; Section Id ;
 +-------------------------------------+----------------------------------------+---------------+-------------+------------+
-; COMPILER_SIGNATURE_ID               ; 740767989461.153847012416612           ; --            ; --          ; --         ;
+; COMPILER_SIGNATURE_ID               ; 740767989461.153931937607860           ; --            ; --          ; --         ;
 ; MAX_CORE_JUNCTION_TEMP              ; 85                                     ; --            ; --          ; --         ;
 ; MIN_CORE_JUNCTION_TEMP              ; 0                                      ; --            ; --          ; --         ;
 ; PARTITION_COLOR                     ; -- (Not supported for targeted family) ; --            ; system      ; Top        ;
@@ -88,7 +88,7 @@ agreement for further details.
 ; POWER_BOARD_THERMAL_MODEL           ; None (CONSERVATIVE)                    ; --            ; --          ; --         ;
 ; POWER_PRESET_COOLING_SOLUTION       ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW  ; --            ; --          ; --         ;
 ; PROJECT_OUTPUT_DIRECTORY            ; output_files                           ; --            ; --          ; --         ;
-; SEARCH_PATH                         ; software/ver4_humidity/mem_init/       ; --            ; --          ; --         ;
+; SEARCH_PATH                         ; software/ver5_internal_reset/mem_init/ ; --            ; --          ; --         ;
 ; TOP_LEVEL_ENTITY                    ; system                                 ; multi         ; --          ; --         ;
 +-------------------------------------+----------------------------------------+---------------+-------------+------------+
 
@@ -98,11 +98,11 @@ agreement for further details.
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:00:47     ; 1.0                     ; 5054 MB             ; 00:01:19                           ;
-; Fitter                    ; 00:01:25     ; 1.1                     ; 6733 MB             ; 00:03:04                           ;
-; Assembler                 ; 00:00:12     ; 1.0                     ; 4880 MB             ; 00:00:09                           ;
-; TimeQuest Timing Analyzer ; 00:00:14     ; 1.7                     ; 5236 MB             ; 00:00:19                           ;
-; Total                     ; 00:02:38     ; --                      ; --                  ; 00:04:51                           ;
+; Analysis & Synthesis      ; 00:00:57     ; 1.0                     ; 5061 MB             ; 00:01:15                           ;
+; Fitter                    ; 00:01:33     ; 1.1                     ; 6755 MB             ; 00:03:10                           ;
+; Assembler                 ; 00:00:13     ; 1.0                     ; 4875 MB             ; 00:00:09                           ;
+; TimeQuest Timing Analyzer ; 00:00:14     ; 1.7                     ; 5238 MB             ; 00:00:18                           ;
+; Total                     ; 00:02:57     ; --                      ; --                  ; 00:04:52                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

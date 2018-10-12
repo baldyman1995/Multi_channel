@@ -167,9 +167,16 @@ agreement for further details.
 	(port
 		(pt 432 160)
 		(output)
-		(text "uart_external_connection_txd" (rect 0 0 116 12)(font "Arial" ))
-		(text "uart_external_connection_txd" (rect 295 155 411 167)(font "Arial" ))
+		(text "sht_reset_export" (rect 0 0 68 12)(font "Arial" ))
+		(text "sht_reset_export" (rect 343 155 411 167)(font "Arial" ))
 		(line (pt 432 160)(pt 416 160)(line_width 1))
+	)
+	(port
+		(pt 432 176)
+		(output)
+		(text "uart_external_connection_txd" (rect 0 0 116 12)(font "Arial" ))
+		(text "uart_external_connection_txd" (rect 295 171 411 183)(font "Arial" ))
+		(line (pt 432 176)(pt 416 176)(line_width 1))
 	)
 	(drawing
 		(rectangle (rect 16 16 416 224)(line_width 1))

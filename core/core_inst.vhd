@@ -20,7 +20,8 @@
 			pwm_7_external_connection_export  : out std_logic_vector(6 downto 0);                     -- export
 			tem_export                        : in  std_logic_vector(15 downto 0) := (others => 'X'); -- export
 			uart_external_connection_rxd      : in  std_logic                     := 'X';             -- rxd
-			uart_external_connection_txd      : out std_logic                                         -- txd
+			uart_external_connection_txd      : out std_logic;                                        -- txd
+			sht_reset_export                  : out std_logic                                         -- export
 		);
 	end component core;
 
@@ -46,6 +47,7 @@
 			pwm_7_external_connection_export  => CONNECTED_TO_pwm_7_external_connection_export,  --  pwm_7_external_connection.export
 			tem_export                        => CONNECTED_TO_tem_export,                        --                        tem.export
 			uart_external_connection_rxd      => CONNECTED_TO_uart_external_connection_rxd,      --   uart_external_connection.rxd
-			uart_external_connection_txd      => CONNECTED_TO_uart_external_connection_txd       --                           .txd
+			uart_external_connection_txd      => CONNECTED_TO_uart_external_connection_txd,      --                           .txd
+			sht_reset_export                  => CONNECTED_TO_sht_reset_export                   --                  sht_reset.export
 		);
 

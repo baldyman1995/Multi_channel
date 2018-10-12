@@ -2,58 +2,54 @@
 # 
 preplace inst core.pwm_1 -pg 1 -lvl 2 -y 1230
 preplace inst core.nios2_gen2_0.reset_bridge -pg 1
-preplace inst core.pwm_2 -pg 1 -lvl 2 -y 1350
+preplace inst core.pwm_2 -pg 1 -lvl 2 -y 1370
 preplace inst core.freq_0 -pg 1 -lvl 2 -y 30
-preplace inst core.pwm_3 -pg 1 -lvl 2 -y 1470
+preplace inst core.pwm_3 -pg 1 -lvl 2 -y 1490
 preplace inst core.freq_1 -pg 1 -lvl 2 -y 430
 preplace inst core.pwm_4 -pg 1 -lvl 2 -y 1610
 preplace inst core.freq_2 -pg 1 -lvl 2 -y 530
 preplace inst core.pwm_5 -pg 1 -lvl 2 -y 1730
 preplace inst core.freq_3 -pg 1 -lvl 2 -y 630
-preplace inst core.Humidity -pg 1 -lvl 3 -y 1530
-preplace inst core.pwm_6 -pg 1 -lvl 2 -y 1850
+preplace inst core.pwm_6 -pg 1 -lvl 2 -y 1830
 preplace inst core.nios2_gen2_0.cpu -pg 1
 preplace inst core.freq_4 -pg 1 -lvl 2 -y 730
 preplace inst core -pg 1 -lvl 1 -y 40 -regy -20
-preplace inst core.pwm_7 -pg 1 -lvl 2 -y 1970
+preplace inst core.pwm_7 -pg 1 -lvl 2 -y 1950
 preplace inst core.nios2_gen2_0.clock_bridge -pg 1
 preplace inst core.freq_5 -pg 1 -lvl 2 -y 830
 preplace inst core.freq_6 -pg 1 -lvl 2 -y 930
-preplace inst core.Tem -pg 1 -lvl 3 -y 1430
+preplace inst core.Tem -pg 1 -lvl 3 -y 1450
 preplace inst core.nios2_gen2_0 -pg 1 -lvl 1 -y 70
 preplace inst core.freq_7 -pg 1 -lvl 2 -y 1030
 preplace inst core.uart -pg 1 -lvl 2 -y 230
 preplace inst core.timer_0 -pg 1 -lvl 2 -y 130
-preplace inst core.sensor_reset -pg 1 -lvl 3 -y 1690
 preplace inst core.Hum -pg 1 -lvl 3 -y 1310
 preplace inst core.pwm_0 -pg 1 -lvl 2 -y 1130
 preplace inst core.onchip_memory2_0 -pg 1 -lvl 2 -y 350
 preplace inst core.clk_0 -pg 1 -lvl 2 -y 2070
-preplace netloc EXPORT<net_container>core</net_container>(SLAVE)core.tem,(SLAVE)Tem.external_connection) 1 0 3 NJ 1460 NJ 1460 NJ
-preplace netloc EXPORT<net_container>core</net_container>(SLAVE)core.sensor_reset,(SLAVE)sensor_reset.external_connection) 1 0 3 NJ 1720 NJ 1720 NJ
-preplace netloc EXPORT<net_container>core</net_container>(SLAVE)pwm_0.external_connection,(SLAVE)core.pwm_0_external_connection) 1 0 2 NJ 1160 NJ
-preplace netloc EXPORT<net_container>core</net_container>(SLAVE)core.pwm_5_external_connection,(SLAVE)pwm_5.external_connection) 1 0 2 NJ 1760 NJ
+preplace netloc EXPORT<net_container>core</net_container>(SLAVE)core.tem,(SLAVE)Tem.external_connection) 1 0 3 NJ 1480 NJ 1480 NJ
+preplace netloc FAN_OUT<net_container>core</net_container>(SLAVE)onchip_memory2_0.clk1,(SLAVE)pwm_5.clk,(SLAVE)pwm_3.clk,(SLAVE)freq_0.clk,(SLAVE)pwm_0.clk,(SLAVE)Tem.clk,(SLAVE)uart.clk,(SLAVE)freq_3.clk,(SLAVE)freq_4.clk,(SLAVE)pwm_6.clk,(SLAVE)freq_7.clk,(SLAVE)freq_1.clk,(SLAVE)freq_5.clk,(SLAVE)pwm_7.clk,(SLAVE)freq_2.clk,(SLAVE)pwm_2.clk,(SLAVE)nios2_gen2_0.clk,(SLAVE)timer_0.clk,(MASTER)clk_0.clk,(SLAVE)Hum.clk,(SLAVE)pwm_1.clk,(SLAVE)pwm_4.clk,(SLAVE)freq_6.clk) 1 0 3 220 210 660 1940 920
+preplace netloc EXPORT<net_container>core</net_container>(SLAVE)core.uart_external_connection,(SLAVE)uart.external_connection) 1 0 2 NJ 300 NJ
 preplace netloc EXPORT<net_container>core</net_container>(SLAVE)pwm_4.external_connection,(SLAVE)core.pwm_4_external_connection) 1 0 2 NJ 1640 NJ
-preplace netloc EXPORT<net_container>core</net_container>(SLAVE)pwm_1.external_connection,(SLAVE)core.pwm_1_external_connection) 1 0 2 NJ 1260 NJ
-preplace netloc EXPORT<net_container>core</net_container>(SLAVE)uart.external_connection,(SLAVE)core.uart_external_connection) 1 0 2 NJ 300 NJ
-preplace netloc EXPORT<net_container>core</net_container>(SLAVE)pwm_2.external_connection,(SLAVE)core.pwm_2_external_connection) 1 0 2 NJ 1380 NJ
+preplace netloc EXPORT<net_container>core</net_container>(SLAVE)Hum.external_connection,(SLAVE)core.hum) 1 0 3 NJ 1340 NJ 1340 NJ
+preplace netloc EXPORT<net_container>core</net_container>(SLAVE)pwm_5.external_connection,(SLAVE)core.pwm_5_external_connection) 1 0 2 NJ 1760 NJ
 preplace netloc EXPORT<net_container>core</net_container>(SLAVE)freq_1.external_connection,(SLAVE)core.freq_1_external_connection) 1 0 2 NJ 460 NJ
-preplace netloc EXPORT<net_container>core</net_container>(SLAVE)core.clk,(SLAVE)clk_0.clk_in) 1 0 2 NJ 2080 NJ
-preplace netloc EXPORT<net_container>core</net_container>(SLAVE)pwm_6.external_connection,(SLAVE)core.pwm_6_external_connection) 1 0 2 NJ 1880 NJ
+preplace netloc EXPORT<net_container>core</net_container>(SLAVE)core.pwm_2_external_connection,(SLAVE)pwm_2.external_connection) 1 0 2 NJ 1400 NJ
 preplace netloc EXPORT<net_container>core</net_container>(SLAVE)core.freq_3_external_connection,(SLAVE)freq_3.external_connection) 1 0 2 NJ 660 NJ
-preplace netloc EXPORT<net_container>core</net_container>(SLAVE)core.hum,(SLAVE)Hum.external_connection) 1 0 3 NJ 1340 NJ 1340 NJ
-preplace netloc EXPORT<net_container>core</net_container>(SLAVE)freq_7.external_connection,(SLAVE)core.freq_7_external_connection) 1 0 2 NJ 1060 NJ
-preplace netloc EXPORT<net_container>core</net_container>(SLAVE)core.pwm_3_external_connection,(SLAVE)pwm_3.external_connection) 1 0 2 NJ 1500 NJ
+preplace netloc EXPORT<net_container>core</net_container>(SLAVE)pwm_3.external_connection,(SLAVE)core.pwm_3_external_connection) 1 0 2 NJ 1520 NJ
+preplace netloc EXPORT<net_container>core</net_container>(SLAVE)core.pwm_1_external_connection,(SLAVE)pwm_1.external_connection) 1 0 2 NJ 1260 NJ
+preplace netloc EXPORT<net_container>core</net_container>(SLAVE)core.pwm_0_external_connection,(SLAVE)pwm_0.external_connection) 1 0 2 NJ 1160 NJ
+preplace netloc EXPORT<net_container>core</net_container>(SLAVE)core.pwm_6_external_connection,(SLAVE)pwm_6.external_connection) 1 0 2 NJ 1860 NJ
 preplace netloc EXPORT<net_container>core</net_container>(SLAVE)core.freq_5_external_connection,(SLAVE)freq_5.external_connection) 1 0 2 NJ 860 NJ
-preplace netloc FAN_OUT<net_container>core</net_container>(SLAVE)uart.irq,(SLAVE)timer_0.irq,(MASTER)nios2_gen2_0.irq) 1 1 1 640
-preplace netloc EXPORT<net_container>core</net_container>(SLAVE)core.pwm_7_external_connection,(SLAVE)pwm_7.external_connection) 1 0 2 NJ 2000 NJ
-preplace netloc FAN_OUT<net_container>core</net_container>(SLAVE)sensor_reset.clk,(SLAVE)freq_7.clk,(SLAVE)pwm_2.clk,(SLAVE)freq_5.clk,(MASTER)clk_0.clk,(SLAVE)freq_2.clk,(SLAVE)freq_4.clk,(SLAVE)freq_3.clk,(SLAVE)pwm_4.clk,(SLAVE)pwm_5.clk,(SLAVE)freq_0.clk,(SLAVE)timer_0.clk,(SLAVE)nios2_gen2_0.clk,(SLAVE)pwm_3.clk,(SLAVE)pwm_6.clk,(SLAVE)pwm_1.clk,(SLAVE)freq_6.clk,(SLAVE)Hum.clk,(SLAVE)freq_1.clk,(SLAVE)Tem.clk,(SLAVE)pwm_7.clk,(SLAVE)pwm_0.clk,(SLAVE)uart.clk,(SLAVE)onchip_memory2_0.clk1,(SLAVE)Humidity.clk) 1 0 3 220 210 660 1840 920
+preplace netloc EXPORT<net_container>core</net_container>(SLAVE)core.pwm_7_external_connection,(SLAVE)pwm_7.external_connection) 1 0 2 NJ 1980 NJ
+preplace netloc EXPORT<net_container>core</net_container>(SLAVE)clk_0.clk_in,(SLAVE)core.clk) 1 0 2 NJ 2080 NJ
+preplace netloc INTERCONNECT<net_container>core</net_container>(SLAVE)pwm_1.reset,(SLAVE)timer_0.reset,(SLAVE)freq_1.reset,(SLAVE)pwm_5.reset,(SLAVE)freq_4.reset,(SLAVE)freq_3.reset,(SLAVE)pwm_7.reset,(SLAVE)clk_0.clk_in_reset,(SLAVE)nios2_gen2_0.reset,(SLAVE)Tem.reset,(SLAVE)pwm_6.reset,(SLAVE)pwm_4.reset,(SLAVE)freq_6.reset,(SLAVE)freq_0.reset,(SLAVE)freq_7.reset,(SLAVE)pwm_0.reset,(SLAVE)onchip_memory2_0.reset1,(SLAVE)Hum.reset,(MASTER)clk_0.clk_reset,(SLAVE)freq_5.reset,(SLAVE)pwm_2.reset,(MASTER)nios2_gen2_0.debug_reset_request,(SLAVE)uart.reset,(SLAVE)pwm_3.reset,(SLAVE)freq_2.reset) 1 0 3 240 260 680 2060 960
 preplace netloc EXPORT<net_container>core</net_container>(SLAVE)freq_6.external_connection,(SLAVE)core.freq_6_external_connection) 1 0 2 NJ 960 NJ
 preplace netloc EXPORT<net_container>core</net_container>(SLAVE)freq_4.external_connection,(SLAVE)core.freq_4_external_connection) 1 0 2 NJ 760 NJ
-preplace netloc INTERCONNECT<net_container>core</net_container>(SLAVE)pwm_0.s1,(SLAVE)pwm_7.s1,(SLAVE)nios2_gen2_0.debug_mem_slave,(SLAVE)uart.s1,(SLAVE)freq_6.s1,(SLAVE)pwm_2.s1,(MASTER)nios2_gen2_0.instruction_master,(MASTER)nios2_gen2_0.data_master,(SLAVE)freq_4.s1,(SLAVE)Humidity.s1,(SLAVE)pwm_1.s1,(SLAVE)Hum.s1,(SLAVE)pwm_5.s1,(SLAVE)pwm_3.s1,(SLAVE)freq_7.s1,(SLAVE)freq_2.s1,(SLAVE)freq_1.s1,(SLAVE)Tem.s1,(SLAVE)pwm_6.s1,(SLAVE)freq_0.s1,(SLAVE)freq_5.s1,(SLAVE)freq_3.s1,(SLAVE)onchip_memory2_0.s1,(SLAVE)timer_0.s1,(SLAVE)pwm_4.s1,(SLAVE)sensor_reset.s1) 1 0 3 200 280 620 1600 980
-preplace netloc EXPORT<net_container>core</net_container>(SLAVE)freq_2.external_connection,(SLAVE)core.freq_2_external_connection) 1 0 2 NJ 560 NJ
-preplace netloc EXPORT<net_container>core</net_container>(SLAVE)Humidity.external_connection,(SLAVE)core.humidity) 1 0 3 NJ 1580 NJ 1580 NJ
+preplace netloc FAN_OUT<net_container>core</net_container>(MASTER)nios2_gen2_0.irq,(SLAVE)uart.irq,(SLAVE)timer_0.irq) 1 1 1 640
+preplace netloc EXPORT<net_container>core</net_container>(SLAVE)core.freq_7_external_connection,(SLAVE)freq_7.external_connection) 1 0 2 NJ 1060 NJ
+preplace netloc INTERCONNECT<net_container>core</net_container>(SLAVE)freq_4.s1,(SLAVE)freq_7.s1,(SLAVE)uart.s1,(SLAVE)freq_0.s1,(SLAVE)pwm_7.s1,(SLAVE)pwm_2.s1,(SLAVE)Hum.s1,(SLAVE)nios2_gen2_0.debug_mem_slave,(SLAVE)onchip_memory2_0.s1,(SLAVE)freq_5.s1,(SLAVE)freq_3.s1,(SLAVE)timer_0.s1,(SLAVE)freq_2.s1,(MASTER)nios2_gen2_0.data_master,(SLAVE)pwm_5.s1,(MASTER)nios2_gen2_0.instruction_master,(SLAVE)pwm_6.s1,(SLAVE)pwm_4.s1,(SLAVE)pwm_3.s1,(SLAVE)freq_6.s1,(SLAVE)freq_1.s1,(SLAVE)Tem.s1,(SLAVE)pwm_0.s1,(SLAVE)pwm_1.s1) 1 0 3 200 280 620 1360 940
+preplace netloc EXPORT<net_container>core</net_container>(SLAVE)core.freq_2_external_connection,(SLAVE)freq_2.external_connection) 1 0 2 NJ 560 NJ
 preplace netloc EXPORT<net_container>core</net_container>(SLAVE)freq_0.external_connection,(SLAVE)core.freq_0_external_connection) 1 0 2 NJ 240 NJ
-preplace netloc INTERCONNECT<net_container>core</net_container>(SLAVE)pwm_5.reset,(SLAVE)freq_7.reset,(SLAVE)pwm_3.reset,(MASTER)nios2_gen2_0.debug_reset_request,(SLAVE)pwm_0.reset,(SLAVE)freq_2.reset,(SLAVE)Humidity.reset,(SLAVE)Tem.reset,(SLAVE)pwm_1.reset,(SLAVE)uart.reset,(SLAVE)timer_0.reset,(SLAVE)freq_4.reset,(SLAVE)pwm_2.reset,(SLAVE)freq_1.reset,(SLAVE)sensor_reset.reset,(SLAVE)freq_6.reset,(SLAVE)pwm_4.reset,(SLAVE)freq_0.reset,(SLAVE)Hum.reset,(SLAVE)freq_3.reset,(SLAVE)pwm_6.reset,(MASTER)clk_0.clk_reset,(SLAVE)freq_5.reset,(SLAVE)nios2_gen2_0.reset,(SLAVE)clk_0.clk_in_reset,(SLAVE)pwm_7.reset,(SLAVE)onchip_memory2_0.reset1) 1 0 3 240 260 680 1960 960
 levelinfo -pg 1 0 170 1170
 levelinfo -hier core 180 360 750 1010 1160
